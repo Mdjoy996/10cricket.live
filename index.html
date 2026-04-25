@@ -1,63 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>10Cricket Live</title>
 <style>
-body{margin:0;background:#111;color:#fff;font-family:Arial}
-header{background:#7ea800;padding:12px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:26px;font-weight:bold}
-.logo span{color:#fff}
-.btn button{padding:10px 16px;border:none;border-radius:8px;color:#fff;font-weight:bold;margin-left:6px}
-.su{background:#555}.li{background:red}
-.card{margin:10px;background:#222;border-radius:10px;overflow:hidden;position:relative}
-.card img{width:100%;display:block}
-.txt{position:absolute;left:10px;bottom:10px;background:#000a;padding:8px 12px;border-radius:6px;font-size:22px;font-weight:bold}
-.play{position:absolute;right:10px;bottom:10px;background:#8bc400;padding:8px 12px;border-radius:6px;font-weight:bold}
-nav{position:fixed;bottom:0;left:0;right:0;background:#000;display:flex;justify-content:space-around;padding:12px 0}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0b0b0b;color:#fff;padding-bottom:70px}
+header{
+background:#7da800;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.logo{
+font-size:34px;
+font-weight:bold;
+}
+.top-btns a{
+text-decoration:none;
+padding:10px 18px;
+border-radius:8px;
+margin-left:8px;
+color:#fff;
+font-weight:bold;
+}
+.signup{background:#555;}
+.login{background:red;}
+.banner{
+margin:8px;
+border-radius:10px;
+overflow:hidden;
+position:relative;
+cursor:pointer;
+}
+.banner img{
+width:100%;
+display:block;
+}
+.play{
+position:absolute;
+right:10px;
+bottom:10px;
+background:#8bc400;
+padding:8px 14px;
+border-radius:8px;
+font-weight:bold;
+}
+.bottom{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#000;
+display:flex;
+justify-content:space-around;
+padding:10px 0;
+}
+.bottom a{
+color:#fff;
+text-decoration:none;
+font-size:18px;
+text-align:center;
+}
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">🏏 <span>10Cricket</span></div>
-<div class="btn">
-<button class="su">Sign Up</button>
-<button class="li">Login</button>
+<div class="logo">10Cricket</div>
+<div class="top-btns">
+<a href="#" class="signup">Sign Up</a>
+<a href="login.html" class="login">Login</a>
 </div>
 </header>
 
-<div class="card">
-<img src="https://picsum.photos/800/400?1">
-<div class="txt">Sports</div>
+<div class="banner" onclick="openGame('sports.html')">
+<img src="https://picsum.photos/600/250?1">
 <div class="play">Play Now</div>
 </div>
 
-<div class="card">
-<img src="https://picsum.photos/800/400?2">
-<div class="txt">Saba (SB)</div>
+<div class="banner" onclick="openGame('saba.html')">
+<img src="https://picsum.photos/600/250?2">
 <div class="play">Play Now</div>
 </div>
 
-<div class="card">
-<img src="https://picsum.photos/800/400?3">
-<div class="txt">Sexy Casino</div>
+<div class="banner" onclick="openGame('casino.html')">
+<img src="https://picsum.photos/600/250?3">
 <div class="play">Play Now</div>
 </div>
 
-<div class="card">
-<img src="https://picsum.photos/800/400?4">
-<div class="txt">Aviator</div>
+<div class="banner" onclick="openGame('aviator.html')">
+<img src="https://picsum.photos/600/250?4">
 <div class="play">Play Now</div>
 </div>
 
-<div style="height:80px"></div>
-<nav>
-<div>Home</div>
-<div>In-Play</div>
-<div>Sports</div>
-<div>Account</div>
-</nav>
+<div class="bottom">
+<a href="#">🏠<br>Home</a>
+<a href="#">⏱️<br>In-Play</a>
+<a href="#">⚽<br>Sports</a>
+<a href="#">👤<br>Account</a>
+</div>
+
+<script>
+function openGame(link){
+window.location.href=link;
+}
+</script>
 
 </body>
 </html>
