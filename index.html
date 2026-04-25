@@ -4,21 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>10Cricket Live</title>
-
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#e8e8e8;
-padding-bottom:75px;
-}
-
-/* HEADER */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#121212;color:#fff;padding-bottom:80px}
 header{
 background:#84a900;
 padding:12px;
@@ -26,66 +14,49 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 }
-
 .logo{
-font-size:32px;
+font-size:28px;
 font-weight:bold;
-color:#fff;
 }
-
-.buttons a{
+.top a{
 text-decoration:none;
-padding:12px 20px;
+padding:10px 16px;
 border-radius:8px;
-margin-left:8px;
-font-size:22px;
-font-weight:bold;
+margin-left:6px;
 color:#fff;
+font-weight:bold;
 }
+.signup{background:#555}
+.login{background:#e00000}
 
-.signup{background:#555;}
-.login{background:#e00000;}
-
-/* BANNER */
-.game-card{
-margin:6px;
-background:#000;
-border:3px solid #84a900;
-border-radius:4px;
+.banner{
+margin:8px;
+background:#222;
+border-radius:8px;
 overflow:hidden;
 position:relative;
-cursor:pointer;
 }
-
-.game-card img{
-width:100%;
-display:block;
-height:auto;
-}
-
+.banner img{width:100%;display:block}
 .label{
 position:absolute;
-left:0;
-bottom:0;
-background:rgba(0,0,0,0.7);
-padding:8px 14px;
-font-size:26px;
+left:10px;
+bottom:10px;
+background:#000a;
+padding:6px 10px;
+border-radius:6px;
+font-size:22px;
 font-weight:bold;
-color:#fff;
 }
-
 .play{
 position:absolute;
-right:0;
-bottom:0;
+right:10px;
+bottom:10px;
 background:#84a900;
-padding:8px 18px;
-font-size:24px;
+padding:8px 12px;
+border-radius:6px;
 font-weight:bold;
-color:#fff;
 }
 
-/* BOTTOM MENU */
 .bottom{
 position:fixed;
 bottom:0;
@@ -96,73 +67,55 @@ display:flex;
 justify-content:space-around;
 padding:10px 0;
 }
-
 .bottom a{
-text-decoration:none;
 color:#fff;
-font-size:20px;
+text-decoration:none;
 text-align:center;
+font-size:16px;
 }
-
-.bottom .active{
-background:#84a900;
-padding:6px 18px;
-border-radius:20px;
-}
+.active{color:#84a900}
 </style>
 </head>
-
 <body>
 
 <header>
 <div class="logo">10Cricket</div>
-
-<div class="buttons">
+<div class="top">
 <a href="#" class="signup">Sign Up</a>
 <a href="login.html" class="login">Login</a>
 </div>
 </header>
 
-<!-- SPORTS -->
-<div class="game-card" onclick="go('sports.html')">
+<div class="banner">
+<a href="sports.html">
 <img src="https://picsum.photos/700/300?1">
 <div class="label">Sports</div>
 <div class="play">Play Now</div>
+</a>
 </div>
 
-<!-- SABA -->
-<div class="game-card" onclick="go('saba.html')">
+<div class="banner">
+<a href="casino.html">
 <img src="https://picsum.photos/700/300?2">
-<div class="label">Saba (SB)</div>
+<div class="label">Casino</div>
 <div class="play">Play Now</div>
+</a>
 </div>
 
-<!-- CASINO -->
-<div class="game-card" onclick="go('casino.html')">
+<div class="banner">
+<a href="aviator.html">
 <img src="https://picsum.photos/700/300?3">
-<div class="label">Sexy Casino</div>
-<div class="play">Play Now</div>
-</div>
-
-<!-- AVIATOR -->
-<div class="game-card" onclick="go('aviator.html')">
-<img src="https://picsum.photos/700/300?4">
 <div class="label">Aviator</div>
 <div class="play">Play Now</div>
+</a>
 </div>
 
 <div class="bottom">
 <a href="#" class="active">🏠<br>Home</a>
-<a href="#">📊<br>In-Play</a>
-<a href="#">⚽<br>Sports</a>
-<a href="#">👤<br>Account</a>
+<a href="sports.html">⚽<br>Sports</a>
+<a href="casino.html">🎰<br>Casino</a>
+<a href="account.html">👤<br>Account</a>
 </div>
-
-<script>
-function go(page){
-window.location.href=page;
-}
-</script>
 
 </body>
 </html>
