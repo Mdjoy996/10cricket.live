@@ -1,39 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Login</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10Cricket Live</title>
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 body{
-font-family:Arial;
-background:#0b1020;
+background:#050d1f;
 color:white;
+}
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+background:#0d1428;
+}
+.logo{
+font-size:26px;
+font-weight:bold;
+color:#00ff88;
+}
+.btn{
+background:linear-gradient(45deg,#2563eb,#3b82f6);
+padding:10px 18px;
+border-radius:10px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+.hero{
 text-align:center;
-padding-top:50px;
+padding:60px 20px;
+background:linear-gradient(135deg,#0d1428,#111c3a);
 }
-input{
-padding:10px;
-margin:8px;
-width:220px;
-border-radius:8px;
-border:none;
+.hero h1{
+font-size:38px;
+margin-bottom:15px;
 }
-button{
-padding:10px 20px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:8px;
+.hero p{
+font-size:18px;
+color:#cbd5e1;
+margin-bottom:25px;
+}
+.section{
+padding:20px;
+}
+.title{
+font-size:28px;
+margin-bottom:15px;
+}
+.grid{
+display:grid;
+grid-template-columns:1fr;
+gap:15px;
+}
+.card{
+background:#1a2338;
+padding:20px;
+border-radius:14px;
+box-shadow:0 4px 12px rgba(0,0,0,0.4);
+font-size:20px;
+}
+footer{
+text-align:center;
+padding:20px;
+background:#0d1428;
+color:#94a3b8;
+margin-top:30px;
 }
 </style>
 </head>
 <body>
 
-<h2>Agent Login</h2>
+<header>
+<div class="logo">🏏 10Cricket Live</div>
+<a href="#" class="btn">Login</a>
+</header>
 
-<input type="text" placeholder="Username"><br>
-<input type="password" placeholder="Password"><br>
-<button>Login</button>
+<section class="hero">
+<h1>Premium Cricket Platform</h1>
+<p>Enjoy Live Matches & Premium Experience</p>
+<a href="#" class="btn">Get Started</a>
+</section>
+
+<section class="section">
+<div class="title">🔥 Live Matches</div>
+<div class="grid">
+<div class="card">India vs Pakistan - Live Now</div>
+<div class="card">Bangladesh vs Sri Lanka - Starting Soon</div>
+</div>
+</section>
+
+<section class="section">
+<div class="title">🎮 Popular Games</div>
+<div class="grid">
+<div class="card">Cricket X</div>
+<div class="card">Football Stars</div>
+<div class="card">Casino Night</div>
+</div>
+</section>
+
+<footer>
+© 2026 10Cricket Live - All Rights Reserved
+</footer>
 
 </body>
 </html>
