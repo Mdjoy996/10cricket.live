@@ -14,14 +14,13 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#111;
-color:#fff;
-padding-bottom:80px;
+background:#e8e8e8;
+padding-bottom:75px;
 }
 
-/* Header */
+/* HEADER */
 header{
-background:#7fa800;
+background:#84a900;
 padding:12px;
 display:flex;
 justify-content:space-between;
@@ -29,63 +28,64 @@ align-items:center;
 }
 
 .logo{
-font-size:34px;
+font-size:32px;
 font-weight:bold;
 color:#fff;
 }
 
-.top-btns a{
+.buttons a{
 text-decoration:none;
-padding:12px 18px;
+padding:12px 20px;
 border-radius:8px;
 margin-left:8px;
+font-size:22px;
 font-weight:bold;
 color:#fff;
-display:inline-block;
 }
 
 .signup{background:#555;}
-.login{background:#e60000;}
+.login{background:#e00000;}
 
-/* Banner Card */
-.card{
-margin:10px;
-border-radius:10px;
+/* BANNER */
+.game-card{
+margin:6px;
+background:#000;
+border:3px solid #84a900;
+border-radius:4px;
 overflow:hidden;
-background:#222;
 position:relative;
-box-shadow:0 0 10px rgba(0,0,0,0.4);
+cursor:pointer;
 }
 
-.card img{
+.game-card img{
 width:100%;
 display:block;
+height:auto;
 }
 
-.title{
+.label{
 position:absolute;
-left:10px;
-bottom:10px;
-background:rgba(0,0,0,0.6);
-padding:6px 10px;
+left:0;
+bottom:0;
+background:rgba(0,0,0,0.7);
+padding:8px 14px;
 font-size:26px;
 font-weight:bold;
-border-radius:6px;
+color:#fff;
 }
 
 .play{
 position:absolute;
-right:10px;
-bottom:10px;
-background:#8bc400;
-padding:8px 15px;
-border-radius:8px;
-font-size:20px;
+right:0;
+bottom:0;
+background:#84a900;
+padding:8px 18px;
+font-size:24px;
 font-weight:bold;
 color:#fff;
 }
 
-/* Bottom Menu */
+/* BOTTOM MENU */
 .bottom{
 position:fixed;
 bottom:0;
@@ -95,18 +95,19 @@ background:#000;
 display:flex;
 justify-content:space-around;
 padding:10px 0;
-border-top:2px solid #333;
 }
 
 .bottom a{
-color:#fff;
 text-decoration:none;
-font-size:18px;
+color:#fff;
+font-size:20px;
 text-align:center;
 }
 
-.bottom a.active{
-color:#9acd32;
+.bottom .active{
+background:#84a900;
+padding:6px 18px;
+border-radius:20px;
 }
 </style>
 </head>
@@ -116,41 +117,40 @@ color:#9acd32;
 <header>
 <div class="logo">10Cricket</div>
 
-<div class="top-btns">
+<div class="buttons">
 <a href="#" class="signup">Sign Up</a>
 <a href="login.html" class="login">Login</a>
 </div>
 </header>
 
-<!-- Sports -->
-<div class="card" onclick="go('sports.html')">
-<img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=900">
-<div class="title">Sports</div>
+<!-- SPORTS -->
+<div class="game-card" onclick="go('sports.html')">
+<img src="https://picsum.photos/700/300?1">
+<div class="label">Sports</div>
 <div class="play">Play Now</div>
 </div>
 
-<!-- Saba -->
-<div class="card" onclick="go('saba.html')">
-<img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900">
-<div class="title">Saba (SB)</div>
+<!-- SABA -->
+<div class="game-card" onclick="go('saba.html')">
+<img src="https://picsum.photos/700/300?2">
+<div class="label">Saba (SB)</div>
 <div class="play">Play Now</div>
 </div>
 
-<!-- Casino -->
-<div class="card" onclick="go('casino.html')">
-<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=900">
-<div class="title">Sexy Casino</div>
+<!-- CASINO -->
+<div class="game-card" onclick="go('casino.html')">
+<img src="https://picsum.photos/700/300?3">
+<div class="label">Sexy Casino</div>
 <div class="play">Play Now</div>
 </div>
 
-<!-- Aviator -->
-<div class="card" onclick="go('aviator.html')">
-<img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=900">
-<div class="title">Aviator</div>
+<!-- AVIATOR -->
+<div class="game-card" onclick="go('aviator.html')">
+<img src="https://picsum.photos/700/300?4">
+<div class="label">Aviator</div>
 <div class="play">Play Now</div>
 </div>
 
-<!-- Bottom Menu -->
 <div class="bottom">
 <a href="#" class="active">🏠<br>Home</a>
 <a href="#">📊<br>In-Play</a>
