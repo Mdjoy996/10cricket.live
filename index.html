@@ -2,59 +2,93 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>10Cricket Updated</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10Cricket</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
 background:#000;
 font-family:Arial,sans-serif;
 color:#fff;
-padding-bottom:100px
+padding-bottom:90px;
 }
-.wrap{padding:6px}
-
-/* Main Banner */
-.main img{
-width:100%;
-border-radius:14px;
-margin-bottom:10px;
-border:1px solid #39ff14;
-display:block
-}
-
-/* Tabs */
-.tabs{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:8px;
-margin:10px 0
-}
-.tab{
-background:#111;
-border:1px solid #39ff14;
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
 padding:12px;
-text-align:center;
-border-radius:12px;
+background:linear-gradient(90deg,#001a00,#00aa00,#001a00);
+}
+.logo{
+font-size:34px;
+font-weight:900;
+color:#9cff00;
+}
+.btns a{
+text-decoration:none;
+padding:10px 15px;
+margin-left:8px;
+border-radius:10px;
 font-weight:bold;
-font-size:18px
+}
+.signup{background:#111;color:#fff}
+.login{background:#9cff00;color:#000}
+
+.wrap{padding:10px}
+
+.banner{
+margin-bottom:10px;
+border:2px solid #66ff00;
+border-radius:14px;
+overflow:hidden;
+}
+.banner img{
+width:100%;
+display:block;
 }
 
-/* Small Banner 2 per row */
 .small{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:10px
-}
-.small img{
-width:100%;
-height:110px;
-object-fit:cover;
-border-radius:12px;
-border:1px solid #39ff14
+gap:10px;
 }
 
-/* Bottom Menu */
+.card{
+position:relative;
+height:190px;
+border:2px solid #66ff00;
+border-radius:12px;
+overflow:hidden;
+background:#111;
+}
+
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.info{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+background:rgba(0,0,0,.75);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:8px;
+font-size:15px;
+font-weight:bold;
+}
+
+.play{
+background:#9cff00;
+color:#000;
+padding:6px 10px;
+border-radius:8px;
+}
+
 .bottom{
 position:fixed;
 bottom:0;
@@ -63,72 +97,75 @@ width:100%;
 background:linear-gradient(90deg,#001a00,#00aa00,#001a00);
 display:flex;
 justify-content:space-around;
-align-items:center;
-padding:12px 0;
-border-top:2px solid #39ff14;
-box-shadow:0 -2px 10px #39ff14
+padding:14px 0;
+border-top:2px solid #66ff00;
 }
+
 .bottom a{
 color:#fff;
 text-decoration:none;
-font-size:24px;
+font-size:22px;
 font-weight:bold;
-padding:10px 18px;
-border-radius:14px;
-transition:.3s
+padding:8px 12px;
+border-radius:12px;
 }
-.bottom a:hover{
-background:#39ff14;
-color:#000
-}
+
 .home{
-background:#39ff14;
+background:#9cff00;
 color:#000;
-box-shadow:0 0 15px #39ff14
 }
 </style>
 </head>
 <body>
 
+<header>
+<div class="logo">10CRICKET</div>
+<div class="btns">
+<a href="https://10cricket.live" class="signup">Sign Up</a>
+<a href="https://10cricket.live" class="login">Login</a>
+</div>
+</header>
+
 <div class="wrap">
 
-<!-- Main Banner -->
-<div class="main">
-<img src="banner1.png">
-<img src="banner2.png">
-<img src="banner3.png">
-<img src="banner4.png">
-</div>
+<div class="banner"><a href="https://10cricket.live"><img src="banner1.png"></a></div>
+<div class="banner"><a href="https://10cricket.live"><img src="banner2.png"></a></div>
+<div class="banner"><a href="https://10cricket.live"><img src="banner3.png"></a></div>
+<div class="banner"><a href="https://10cricket.live"><img src="banner4.png"></a></div>
 
-<!-- Tabs -->
-<div class="tabs">
-<div class="tab">Sports</div>
-<div class="tab">Football</div>
-<div class="tab">Tennis</div>
-</div>
-
-<!-- Small Banner -->
 <div class="small">
-<img src="small1.png"><img src="small2.png">
-<img src="small3.png"><img src="small4.png">
-<img src="small5.png"><img src="small6.png">
-<img src="small7.png"><img src="small8.png">
-<img src="small9.png"><img src="small10.png">
-<img src="small11.png"><img src="small12.png">
-<img src="small13.png"><img src="small14.png">
-<img src="small15.png"><img src="small16.png">
-<img src="small17.png"><img src="small18.png">
-<img src="small19.png"><img src="small20.png">
-<img src="small21.png"><img src="small22.png">
-<img src="small23.png"><img src="small24.png">
-<img src="small25.png"><img src="small26.png">
-<img src="small27.png"><img src="small28.png">
-<img src="small29.png"><img src="small30.png">
+
+<div class="card">
+<a href="https://10cricket.live">
+<img src="small1.png">
+<div class="info"><span>Game 1</span><span class="play">Play</span></div>
+</a>
+</div>
+
+<div class="card">
+<a href="https://10cricket.live">
+<img src="small2.png">
+<div class="info"><span>Game 2</span><span class="play">Play</span></div>
+</a>
+</div>
+
+<div class="card">
+<a href="https://10cricket.live">
+<img src="small3.png">
+<div class="info"><span>Game 3</span><span class="play">Play</span></div>
+</a>
+</div>
+
+<div class="card">
+<a href="https://10cricket.live">
+<img src="small4.png">
+<div class="info"><span>Game 4</span><span class="play">Play</span></div>
+</a>
 </div>
 
 </div>
+</div>
 
-<!-- Bottom Menu -->
 <div class="bottom">
 <a href="#">Sports</a>
 <a href="#" class="home">Home</a>
