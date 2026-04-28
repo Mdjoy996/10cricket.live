@@ -2,118 +2,67 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>10Cricket</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>10Cricket Full Games</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{
-background:#000;
-font-family:Arial,sans-serif;
-color:#fff;
-padding-bottom:90px;
-}
+body{background:#000;font-family:Arial,sans-serif;color:#fff;padding-bottom:95px}
 header{
-display:flex;
-justify-content:space-between;
-align-items:center;
+display:flex;justify-content:space-between;align-items:center;
 padding:12px;
-background:linear-gradient(90deg,#001a00,#00aa00,#001a00);
+background:linear-gradient(90deg,#001a00,#00aa00,#001a00)
 }
-.logo{
-font-size:34px;
-font-weight:900;
-color:#9cff00;
-}
+.logo{font-size:34px;font-weight:900;color:#9cff00}
 .btns a{
-text-decoration:none;
-padding:10px 15px;
-margin-left:8px;
-border-radius:10px;
-font-weight:bold;
+text-decoration:none;padding:10px 14px;border-radius:10px;
+margin-left:8px;font-weight:bold
 }
 .signup{background:#111;color:#fff}
 .login{background:#9cff00;color:#000}
 
 .wrap{padding:10px}
-
 .banner{
-margin-bottom:10px;
-border:2px solid #66ff00;
-border-radius:14px;
-overflow:hidden;
+margin-bottom:10px;border:2px solid #66ff00;
+border-radius:14px;overflow:hidden
 }
-.banner img{
-width:100%;
-display:block;
-}
+.banner img{width:100%;display:block}
 
 .small{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:10px;
+gap:10px
 }
-
 .card{
-position:relative;
-height:190px;
-border:2px solid #66ff00;
-border-radius:12px;
-overflow:hidden;
-background:#111;
+position:relative;height:180px;
+border:2px solid #66ff00;border-radius:12px;
+overflow:hidden;background:#111
 }
-
 .card img{
-width:100%;
-height:100%;
-object-fit:cover;
+width:100%;height:100%;object-fit:cover
 }
-
 .info{
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
+position:absolute;bottom:0;left:0;width:100%;
 background:rgba(0,0,0,.75);
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:8px;
-font-size:15px;
-font-weight:bold;
+display:flex;justify-content:space-between;
+padding:8px;font-size:14px;font-weight:bold
 }
-
 .play{
-background:#9cff00;
-color:#000;
-padding:6px 10px;
-border-radius:8px;
+background:#9cff00;color:#000;
+padding:6px 10px;border-radius:8px
 }
 
 .bottom{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
+position:fixed;bottom:0;left:0;width:100%;
 background:linear-gradient(90deg,#001a00,#00aa00,#001a00);
-display:flex;
-justify-content:space-around;
-padding:14px 0;
-border-top:2px solid #66ff00;
+display:flex;justify-content:space-around;
+padding:14px 0;border-top:2px solid #66ff00
 }
-
 .bottom a{
-color:#fff;
-text-decoration:none;
-font-size:22px;
-font-weight:bold;
-padding:8px 12px;
-border-radius:12px;
+color:#fff;text-decoration:none;
+font-size:22px;font-weight:bold;
+padding:8px 14px;border-radius:12px
 }
-
-.home{
-background:#9cff00;
-color:#000;
-}
+.home{background:#9cff00;color:#000}
 </style>
 </head>
 <body>
@@ -121,55 +70,46 @@ color:#000;
 <header>
 <div class="logo">10CRICKET</div>
 <div class="btns">
-<a href="https://10cricket.live" class="signup">Sign Up</a>
-<a href="https://10cricket.live" class="login">Login</a>
+<a href="signup.html" class="signup">Sign Up</a>
+<a href="login.html" class="login">Login</a>
 </div>
 </header>
 
 <div class="wrap">
 
-<div class="banner"><a href="https://10cricket.live"><img src="banner1.png"></a></div>
-<div class="banner"><a href="https://10cricket.live"><img src="banner2.png"></a></div>
-<div class="banner"><a href="https://10cricket.live"><img src="banner3.png"></a></div>
-<div class="banner"><a href="https://10cricket.live"><img src="banner4.png"></a></div>
+<!-- 4 Main Banner -->
+<div class="banner"><a href="sports.html"><img src="banner1.png"></a></div>
+<div class="banner"><a href="football.html"><img src="banner2.png"></a></div>
+<div class="banner"><a href="tennis.html"><img src="banner3.png"></a></div>
+<div class="banner"><a href="casino.html"><img src="banner4.png"></a></div>
 
+<!-- 30 Small Banner -->
 <div class="small">
 
-<div class="card">
-<a href="https://10cricket.live">
-<img src="small1.png">
-<div class="info"><span>Game 1</span><span class="play">Play</span></div>
-</a>
+<div class="card"><a href="game1.html"><img src="small1.png"><div class="info"><span>Game 1</span><span class="play">Play</span></div></a></div>
+<div class="card"><a href="game2.html"><img src="small2.png"><div class="info"><span>Game 2</span><span class="play">Play</span></div></a></div>
+
+<div class="card"><a href="game3.html"><img src="small3.png"><div class="info"><span>Game 3</span><span class="play">Play</span></div></a></div>
+<div class="card"><a href="game4.html"><img src="small4.png"><div class="info"><span>Game 4</span><span class="play">Play</span></div></a></div>
+
+<div class="card"><a href="game5.html"><img src="small5.png"><div class="info"><span>Game 5</span><span class="play">Play</span></div></a></div>
+<div class="card"><a href="game6.html"><img src="small6.png"><div class="info"><span>Game 6</span><span class="play">Play</span></div></a></div>
+
+<div class="card"><a href="game7.html"><img src="small7.png"><div class="info"><span>Game 7</span><span class="play">Play</span></div></a></div>
+<div class="card"><a href="game8.html"><img src="small8.png"><div class="info"><span>Game 8</span><span class="play">Play</span></div></a></div>
+
+<div class="card"><a href="game9.html"><img src="small9.png"><div class="info"><span>Game 9</span><span class="play">Play</span></div></a></div>
+<div class="card"><a href="game10.html"><img src="small10.png"><div class="info"><span>Game 10</span><span class="play">Play</span></div></a></div>
+
+<!-- Continue same pattern -->
 </div>
 
-<div class="card">
-<a href="https://10cricket.live">
-<img src="small2.png">
-<div class="info"><span>Game 2</span><span class="play">Play</span></div>
-</a>
-</div>
-
-<div class="card">
-<a href="https://10cricket.live">
-<img src="small3.png">
-<div class="info"><span>Game 3</span><span class="play">Play</span></div>
-</a>
-</div>
-
-<div class="card">
-<a href="https://10cricket.live">
-<img src="small4.png">
-<div class="info"><span>Game 4</span><span class="play">Play</span></div>
-</a>
-</div>
-
-</div>
 </div>
 
 <div class="bottom">
-<a href="#">Sports</a>
-<a href="#" class="home">Home</a>
-<a href="#">Account</a>
+<a href="sports.html">Sports</a>
+<a href="index.html" class="home">Home</a>
+<a href="account.html">Account</a>
 </div>
 
 </body>
