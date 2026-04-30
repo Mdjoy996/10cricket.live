@@ -13,7 +13,20 @@ font-family:Arial;
 color:#fff;
 padding-bottom:120px;
 }
+.slider-box{
+margin-bottom:12px;
+border:2px solid #66ff00;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 0 10px #00ff00;
+}
 
+.slider-img{
+width:100%;
+height:120px;
+object-fit:cover;
+}
+  
 /* Header */
 header{
 display:flex;
@@ -138,7 +151,12 @@ text-decoration:none;
 </header>
 
 <div class="wrap">
-
+  
+<!-- NEW SLIDER (NO CHANGE OLD BANNERS) -->
+<div class="slider-box">
+  <img class="slider-img" src="banner1.png">
+</div>
+  
 <!-- TOP BANNER -->
 <div class="banner"><img src="banner1.png" onclick="openGame('https://example.com')"></div>
 <div class="banner"><img src="banner2.png" onclick="openGame('https://example.com')"></div>
@@ -195,7 +213,25 @@ text-decoration:none;
 <button class="closeBtn" onclick="closeGame()">X</button>
 <iframe id="gameFrame"></iframe>
 </div>
+<script>
+let imgs = [
+"banner1.png",
+"banner2.png",
+"banner3.png",
+"banner4.png"
+];
 
+let i = 0;
+
+setInterval(() => {
+  i++;
+  if(i >= imgs.length){
+    i = 0;
+  }
+  document.querySelector(".slider-img").src = imgs[i];
+}, 2000);
+</script>
+  
 <script>
 function openGame(link){
 document.getElementById("gameBox").style.display="block";
