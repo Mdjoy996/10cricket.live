@@ -9,16 +9,17 @@ body{
 margin:0;
 font-family:Arial;
 background:linear-gradient(#0b2d0b,#49a000);
-color:#fff;
 }
 
-/* TOP IMAGE */
+/* TOP IMAGE (CURVE FIXED) */
 .top{
 width:100%;
 height:230px;
 overflow:hidden;
-border-bottom-left-radius:50% 80px;
-border-bottom-right-radius:50% 80px;
+
+/* 🔥 এইটা change করা হয়েছে */
+border-bottom-left-radius:60% 120px;
+border-bottom-right-radius:60% 120px;
 }
 
 .top img{
@@ -27,10 +28,16 @@ height:100%;
 object-fit:cover;
 }
 
-/* FORM */
+/* FORM AREA */
 .form{
 padding:25px;
-margin-top:20px;
+
+/* 🔥 নিচে নামানো */
+margin-top:50px;
+
+/* 🔥 ডানে চাপানো */
+padding-left:40px;
+padding-right:15px;
 }
 
 /* INPUT BOX */
@@ -47,7 +54,6 @@ border:none;
 outline:none;
 font-size:16px;
 background:#eee;
-color:#000;
 }
 
 /* EYE ICON */
@@ -57,7 +63,6 @@ right:15px;
 top:50%;
 transform:translateY(-50%);
 cursor:pointer;
-font-size:18px;
 }
 
 /* BUTTON */
@@ -106,11 +111,11 @@ text-decoration:underline;
 <span class="eye" onclick="togglePass()">👁</span>
 </div>
 
-<button class="btn" onclick="login()">Login</button>
+<button class="btn">Login</button>
 
 <div class="links">
 <a href="#">Privacy Policy</a> |
-<a href="#">Terms & Conditions</a> |
+<a href="#">Terms</a> |
 <a href="#">Rules</a><br>
 
 <a href="#">KYC</a> |
@@ -126,15 +131,7 @@ text-decoration:underline;
 <script>
 function togglePass(){
 var x=document.getElementById("pass");
-if(x.type==="password"){
-x.type="text";
-}else{
-x.type="password";
-}
-}
-
-function login(){
-alert("Login system not connected yet");
+x.type = x.type === "password" ? "text" : "password";
 }
 </script>
 
