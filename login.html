@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
@@ -8,95 +8,114 @@
 body{
 margin:0;
 font-family:Arial;
-background:linear-gradient(#002800,#66cc00);
-color:#000;
+background:linear-gradient(#0b2d0b,#49a000);
+color:#fff;
 }
 
-/* Top Image */
-.top-img{
+/* TOP IMAGE */
+.top{
 width:100%;
-height:250px;
+height:230px;
+overflow:hidden;
+border-bottom-left-radius:50% 80px;
+border-bottom-right-radius:50% 80px;
+}
+
+.top img{
+width:100%;
+height:100%;
 object-fit:cover;
 }
 
-/* Form Box */
-.form-box{
-width:90%;
-max-width:400px;
-margin:30px auto;
+/* FORM */
+.form{
+padding:25px;
+margin-top:20px;
 }
 
-/* Input */
-input{
+/* INPUT BOX */
+.inputBox{
+position:relative;
+margin-bottom:18px;
+}
+
+.inputBox input{
 width:100%;
 padding:15px;
-margin:10px 0;
-border-radius:12px;
+border-radius:15px;
 border:none;
+outline:none;
 font-size:16px;
+background:#eee;
+color:#000;
 }
 
-/* Password eye */
-.pass-box{
-position:relative;
-}
+/* EYE ICON */
 .eye{
 position:absolute;
 right:15px;
-top:18px;
+top:50%;
+transform:translateY(-50%);
 cursor:pointer;
+font-size:18px;
 }
 
-/* Button */
+/* BUTTON */
 .btn{
 width:100%;
 padding:15px;
+border:none;
+border-radius:15px;
 background:#000;
 color:#ffcc00;
-border:none;
-border-radius:12px;
 font-size:18px;
 margin-top:10px;
 }
 
-/* Footer Text */
-.footer{
+/* LINKS */
+.links{
 text-align:center;
-margin-top:20px;
+margin-top:25px;
 font-size:14px;
+line-height:28px;
 }
-.footer a{
+
+.links a{
 color:#000;
 text-decoration:underline;
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- 🔴 IMPORTANT: image name same hote hobe -->
-<img src="login-banner.png" class="top-img">
+<!-- TOP BANNER -->
+<div class="top">
+<img src="login-banner.png">
+</div>
 
-<div class="form-box">
+<!-- FORM -->
+<div class="form">
 
+<div class="inputBox">
 <input type="text" placeholder="Username">
+</div>
 
-<div class="pass-box">
+<div class="inputBox">
 <input type="password" id="pass" placeholder="Password">
-<span class="eye" onclick="togglePass()">👁️</span>
+<span class="eye" onclick="togglePass()">👁</span>
 </div>
 
 <button class="btn" onclick="login()">Login</button>
 
-<div class="footer">
+<div class="links">
 <a href="#">Privacy Policy</a> |
 <a href="#">Terms & Conditions</a> |
-<a href="#">Rules</a><br><br>
+<a href="#">Rules</a><br>
 
 <a href="#">KYC</a> |
 <a href="#">Responsible Gaming</a> |
-<a href="#">About Us</a><br><br>
+<a href="#">About Us</a><br>
 
 <a href="#">Self-exclusion Policy</a> |
 <a href="#">Underage Policy</a>
@@ -106,16 +125,16 @@ text-decoration:underline;
 
 <script>
 function togglePass(){
-let x = document.getElementById("pass");
-if(x.type === "password"){
-x.type = "text";
+var x=document.getElementById("pass");
+if(x.type==="password"){
+x.type="text";
 }else{
-x.type = "password";
+x.type="password";
 }
 }
 
 function login(){
-alert("Login Button Clicked");
+alert("Login system not connected yet");
 }
 </script>
 
