@@ -11,13 +11,10 @@ font-family:Arial;
 background:linear-gradient(#062b06,#4caf00);
 }
 
-/* TOP BANNER */
 .top{
 width:100%;
 height:230px;
 overflow:hidden;
-
-/* smooth curve */
 border-bottom-left-radius:60% 100px;
 border-bottom-right-radius:60% 100px;
 }
@@ -29,14 +26,12 @@ object-fit:cover;
 display:block;
 }
 
-/* FORM AREA */
 .form{
 width:92%;
 max-width:380px;
-margin:70px auto 0 auto; /* center perfect */
+margin:70px auto 0 auto;
 }
 
-/* INPUT */
 .inputBox{
 position:relative;
 }
@@ -54,17 +49,6 @@ margin-bottom:15px;
 box-sizing:border-box;
 }
 
-/* EYE ICON */
-.eye{
-position:absolute;
-right:15px;
-top:50%;
-transform:translateY(-50%);
-cursor:pointer;
-font-size:18px;
-}
-
-/* LOGIN BUTTON */
 .btn{
 width:100%;
 height:55px;
@@ -75,9 +59,9 @@ color:#ffcc00;
 font-size:18px;
 font-weight:bold;
 margin-top:5px;
+cursor:pointer;
 }
 
-/* LINKS */
 .links{
 text-align:center;
 margin-top:25px;
@@ -85,23 +69,51 @@ font-size:14px;
 line-height:28px;
 padding-bottom:40px;
 }
-
-.links a{
-color:#000;
-text-decoration:underline;
-}
 </style>
 </head>
 
 <body>
 
-<!-- TOP IMAGE -->
 <div class="top">
 <img src="banner1.png">
 </div>
 
-<!-- FORM -->
 <div class="form">
 
+<form id="loginForm">
+
 <div class="inputBox">
-<input
+<input type="text" id="username" placeholder="Username">
+</div>
+
+<div class="inputBox">
+<input type="password" id="password" placeholder="Password">
+</div>
+
+<button class="btn" type="submit">LOGIN</button>
+
+</form>
+
+<div class="links">
+<a href="#">Forgot Password?</a>
+</div>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+let user = document.getElementById("username").value;
+let pass = document.getElementById("password").value;
+
+if(user === "admin" && pass === "1234"){
+alert("Login Success");
+} else {
+alert("Wrong username or password");
+}
+});
+</script>
+
+</body>
+</html>
