@@ -4,24 +4,40 @@
 </div>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-background:#000;
-font-family:Arial,sans-serif;
+.logo{
+display:flex;
+align-items:center;
+gap:6px;
+font-weight:900;
+font-style:italic;
+}
+
+.ten{
+font-size:38px;
+color:#7CFF00;
+}
+
+.cricket{
+font-size:34px;
 color:#fff;
-padding-bottom:130px;
+}
+
+.live{
+background:#7CFF00;
+color:#000;
+font-size:14px;
+padding:2px 8px;
+border-radius:4px;
+margin-left:6px;
+}
 }
 
 /* Header */
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px;
-background:linear-gradient(90deg,#001a00,#00aa00,#001a00);
-position:sticky;
-top:0;
-z-index:999;
+<div class="logo">
+  <span class="ten">10</span>
+  <span class="cricket">Cricket</span>
+  <span class="live">LIVE</span>
+</div>
 }
 .logo{
 display:flex;
