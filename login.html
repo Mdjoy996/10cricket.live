@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
@@ -7,74 +7,66 @@
 <style>
 body{
 margin:0;
-background:linear-gradient(#0a1f0a,#66cc00);
 font-family:Arial;
-text-align:center;
+background:linear-gradient(#002800,#66cc00);
+color:#000;
 }
 
-.topimg{
+/* Top Image */
+.top-img{
 width:100%;
 height:220px;
 object-fit:cover;
 }
 
-.form{
-padding:20px;
-margin-top:40px;
-}
-
-.inputBox{
-position:relative;
+/* Form Box */
+.form-box{
 width:90%;
-margin:12px auto;
+max-width:400px;
+margin:30px auto;
 }
 
+/* Input */
 input{
 width:100%;
-padding:14px;
-border-radius:10px;
-border:1px solid #555;
+padding:15px;
+margin:10px 0;
+border-radius:12px;
+border:none;
 font-size:16px;
 }
 
+/* Password eye */
+.pass-box{
+position:relative;
+}
 .eye{
 position:absolute;
-right:12px;
-top:50%;
-transform:translateY(-50%);
+right:15px;
+top:18px;
 cursor:pointer;
 }
 
-.validation{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.code{
-font-weight:bold;
-font-size:22px;
-}
-
+/* Button */
 .btn{
-width:90%;
-padding:14px;
-background:linear-gradient(#111,#000);
+width:100%;
+padding:15px;
+background:#000;
 color:#ffcc00;
 border:none;
-border-radius:10px;
+border-radius:12px;
 font-size:18px;
-margin-top:15px;
+margin-top:10px;
 }
 
+/* Footer Text */
 .footer{
+text-align:center;
 margin-top:20px;
 font-size:14px;
-color:#111;
-line-height:22px;
 }
 .footer a{
-color:#111;
+color:#000;
 text-decoration:underline;
 }
 </style>
@@ -83,75 +75,47 @@ text-decoration:underline;
 
 <body>
 
-<img src="login-banner.png" class="topimg">
+<!-- 🔴 IMPORTANT: image name same hote hobe -->
+<img src="login-banner.png" class="top-img">
 
-<div class="form">
+<div class="form-box">
 
-<div class="inputBox">
-<input type="text" id="user" placeholder="Username">
-</div>
+<input type="text" placeholder="Username">
 
-<div class="inputBox">
+<div class="pass-box">
 <input type="password" id="pass" placeholder="Password">
-<span class="eye" onclick="togglePass()">👁</span>
-</div>
-
-<div class="inputBox validation">
-<input type="text" id="val" placeholder="Validation">
-<span class="code" id="code"></span>
+<span class="eye" onclick="togglePass()">👁️</span>
 </div>
 
 <button class="btn" onclick="login()">Login</button>
 
 <div class="footer">
 <a href="#">Privacy Policy</a> |
-<a href="#">Terms</a> |
-<a href="#">Rules</a>
+<a href="#">Terms & Conditions</a> |
+<a href="#">Rules</a><br><br>
+
+<a href="#">KYC</a> |
+<a href="#">Responsible Gaming</a> |
+<a href="#">About Us</a><br><br>
+
+<a href="#">Self-exclusion Policy</a> |
+<a href="#">Underage Policy</a>
 </div>
 
 </div>
 
 <script>
-/* Password Show Hide */
 function togglePass(){
-var x = document.getElementById("pass");
-x.type = (x.type === "password") ? "text" : "password";
+let x = document.getElementById("pass");
+if(x.type === "password"){
+x.type = "text";
+}else{
+x.type = "password";
+}
 }
 
-/* Random Code */
-var realCode = Math.floor(1000 + Math.random() * 9000);
-document.getElementById("code").innerText = realCode;
-
-/* LOGIN SYSTEM */
 function login(){
-
-var u = document.getElementById("user").value;
-var p = document.getElementById("pass").value;
-var v = document.getElementById("val").value;
-
-/* CHANGE USERNAME PASSWORD HERE */
-var USERNAME = "admin";
-var PASSWORD = "1234";
-
-if(u === USERNAME && p === PASSWORD){
-
-if(v == realCode){
-alert("Login Success ✅");
-
-/* Save Login */
-localStorage.setItem("login","ok");
-
-/* Go Home */
-window.location.href = "index.html";
-
-}else{
-alert("Wrong Validation ❌");
-}
-
-}else{
-alert("Wrong Username or Password ❌");
-}
-
+alert("Login Button Clicked");
 }
 </script>
 
