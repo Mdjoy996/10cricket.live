@@ -218,13 +218,8 @@ text-decoration:none;
 <iframe id="gameFrame"></iframe>
 </div>
   
-</script>
-let imgs = [
-"slider1.png",
-"slider2.png",
-"slider3.png",
-"slider4.png"
-];
+<script>
+let imgs = ["slider.png","slider1.png","slider2.png","slider3.png"];
 
 let i = 0;
 
@@ -235,6 +230,7 @@ setInterval(() => {
   }
   document.querySelector(".slider-img").src = imgs[i];
 }, 2000);
+</script>
   
 <script>
 function openGame(link){
