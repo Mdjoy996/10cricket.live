@@ -302,9 +302,7 @@ if(!user){
 alert("Please login first");
 location.href = "login.html";
 }
-
-</script>
-  // user info show
+// user info show
 let currentUser = localStorage.getItem("currentUser");
 
 document.getElementById("userName").innerText = "User: " + currentUser;
@@ -324,5 +322,7 @@ function logout(){
 localStorage.removeItem("currentUser");
 location.href = "login.html";
 }
+</script>
+  
 </body>
 </html>
