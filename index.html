@@ -148,7 +148,18 @@ text-decoration:none;
 <div class="logo">
 <img src="logo.png">
 </div>
+<div id="userBar" style="background:#7fae2e;padding:10px;color:#fff;display:flex;justify-content:space-between;align-items:center;">
 
+<span id="userName"></span>
+
+<span id="balance">Balance: 0</span>
+
+<button onclick="logout()" style="padding:5px 10px;border:none;border-radius:5px;background:black;color:#ffcc00;">
+Logout
+</button>
+
+</div>
+  
 <div class="btns">
 <a href="#" class="signup">Sign Up</a>
 <a href="login.html" class="login">Login</a>
@@ -292,5 +303,25 @@ location.href = "login.html";
 }
 
 </script>
+  // user info show
+let currentUser = localStorage.getItem("currentUser");
+
+document.getElementById("userName").innerText = "User: " + currentUser;
+
+// demo balance
+let users = JSON.parse(localStorage.getItem("users")) || [];
+let user = users.find(u => u.username === currentUser);
+
+if(user && user.balance){
+document.getElementById("balance").innerText = "Balance: " + user.balance;
+} else {
+document.getElementById("balance").innerText = "Balance: 0";
+}
+
+// logout
+function logout(){
+localStorage.removeItem("currentUser");
+location.href = "login.html";
+}
 </body>
 </html>
