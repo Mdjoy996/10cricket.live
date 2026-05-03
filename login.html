@@ -206,8 +206,13 @@ let user = document.getElementById("username").value;
 let pass = document.getElementById("password").value;
 
 if(user === "admin" && pass === "1234"){
+
+// ✅ শুধু এই লাইনটা add করা হয়েছে
+localStorage.setItem("currentUser", user);
+
 alert("Login Successful ✅");
 window.location.href = "index.html";
+
 } else {
 alert("Wrong Username or Password ❌");
 }
