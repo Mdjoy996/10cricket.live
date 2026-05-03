@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Dashboard</title>
+
+<style>
+body{
+font-family:Arial;
+background:#111;
+color:#fff;
+text-align:center;
+padding:20px;
+}
+
+.box{
+background:#222;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+}
+
+button{
+padding:10px;
+margin:5px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.green{background:green;color:#fff;}
+.red{background:red;color:#fff;}
+</style>
+
+</head>
+
+<body>
+
+<h2>User Betting Panel</h2>
+
+<div class="box">
+<p id="user"></p>
+<p id="balance"></p>
+</div>
+
+<div class="box">
+
+<h3>Place Bet</h3>
+
+<input type="number" id="amount" placeholder="Enter Amount"><br><br>
+
+<button class="green" onclick="bet('win')">Bet WIN</button>
+<button class="red" onclick="bet('lose')">Bet LOSE</button>
+
+</div>
+
+<div class="box">
+<h3 id="result"></h3>
+</div>
+
+<button onclick="logout()">Logout</button>
+
+<script>
+
+let currentUser = localStorage.getItem("currentUser");
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+let user = users.find(u => u.username === currentUser);
+
+// show info
+document.getElementById("user").innerText = "User: " + currentUser;
+document.getElementById("balance").innerText = "Balance: " + (user.balance || 0);
+
+// BET FUNCTION
+function bet(type){
+
+let amount = parseInt(document.getElementById("amount").value);
+
+if(!amount || amount <= 0){
+alert("Enter valid amount");
+return;
+}
+
+if(user.balance < amount){
+alert("Not enough balance");
+return;
+}
+
+// random result
+let win = Math.random() < 0.5;
+
+if(type === "win"){
+win = true;
+}else{
+win = false;
+}
+
+// update balance
+if(win){
+user.balance += amount;
+document.getElementById("result").innerText = "You WIN +" + amount;
+}else{
+user.balance -= amount;
+document.getElementById("result").innerText = "You LOSE -" + amount;
+}
+
+// save
+localStorage.setItem("users", JSON.stringify(users));
+
+// update UI
+document.getElementById("balance").innerText = "Balance: " + user.balance;
+
+}
+
+// logout
+function logout(){
+localStorage.clear();
+location.href="index.html";
+}
+
+</script>
+
+</body>
+</html>
