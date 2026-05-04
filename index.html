@@ -329,6 +329,19 @@ location.reload();
 
 window.onload=updateUI;
 
+/* 🔥 SLIDER CODE ADD HERE */
+let imgs = ["slider.png","slider1.png","slider2.png","slider3.png"];
+
+let i = 0;
+
+setInterval(() => {
+  i++;
+  if(i >= imgs.length){
+    i = 0;
+  }
+  document.querySelector(".slider-img").src = imgs[i];
+}, 2000);
+
 </script>
 
 </body>
