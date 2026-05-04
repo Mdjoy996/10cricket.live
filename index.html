@@ -272,7 +272,16 @@ alert("Updated 🔄");
 }
 
 window.onload=updateUI;
+  
+let imgs = ["slider.png","slider1.png","slider2.png","slider3.png"];
 
+let i = 0;
+
+setInterval(() => {
+  i = (i + 1) % imgs.length;
+  document.querySelector(".slider-img").src = imgs[i];
+}, 2500);
+  
 </script>
 
 </body>
