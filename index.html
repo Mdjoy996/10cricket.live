@@ -160,6 +160,20 @@ text-decoration:none;
 
 </header>
 
+<!-- ✅ ONLY ADD START -->
+<div id="betBar" style="display:none; padding:10px; background:#002b00;">
+  <div style="display:flex; gap:10px; align-items:center;">
+    <div style="background:#333;padding:10px 15px;border-radius:10px;">💰 Bets</div>
+    <div style="flex:1;background:#222;padding:10px;border-radius:10px;">
+      Main <span id="balance">0.00</span>  
+      &nbsp;&nbsp; Exposure <span id="exposure">0.00</span>
+    </div>
+    <div onclick="refreshBalance()" style="background:#333;padding:10px;border-radius:10px;cursor:pointer;">🔄</div>
+    <div style="background:#333;padding:10px;border-radius:10px;">⚙</div>
+  </div>
+</div>
+<!-- ✅ ONLY ADD END -->
+
 <div id="userBar">
 User: <span id="userName"></span><br>
 Balance: <span id="balance"></span><br>
@@ -168,18 +182,15 @@ Exposure: <span id="exposure"></span>
 
 <div class="wrap">
 
-<!-- SLIDER -->
 <div class="slider-box">
 <img class="slider-img" src="slider.png">
 </div>
 
-<!-- BANNERS -->
 <div class="banner"><img src="banner1.png" onclick="openGame('https://example.com')"></div>
 <div class="banner"><img src="banner2.png" onclick="openGame('https://example.com')"></div>
 <div class="banner"><img src="banner3.png" onclick="openGame('https://example.com')"></div>
 <div class="banner"><img src="banner4.png" onclick="openGame('https://example.com')"></div>
 
-<!-- SMALL 30 -->
 <div class="small">
 
 <div class="card"><img src="small1.png" onclick="openGame('https://example.com')"></div>
@@ -219,34 +230,27 @@ Exposure: <span id="exposure"></span>
 
 </div>
 
-<!-- BIG BOTTOM -->
 <div class="banner">
 <img src="bigbottom.png" style="height:80px;width:100%;object-fit:cover;">
 </div>
 
-<!-- BIG BOTTOM TEXT RESTORED -->
 <div style="text-align:center;padding:15px;font-size:12px;color:#fff;opacity:0.7;line-height:1.6;">
-
 10cricket.live | Online Sports Entertainment Platform<br>
 www.10cricket.live<br>
 Privacy Policy | Terms & Conditions | Responsible Gaming<br>
 KYC Verified Platform | Secure Transactions<br>
 © 2026 All Rights Reserved
-
 </div>
 
-<!-- FOOTER -->
 <footer style="background:#0b0b0b;color:#fff;padding:25px 15px;text-align:center;">
 <p>© 2026 10cricket.live</p>
 </footer>
 
-<!-- GAME -->
 <div id="gameBox">
 <button class="closeBtn" onclick="closeGame()">X</button>
 <iframe id="gameFrame"></iframe>
 </div>
 
-<!-- BOTTOM -->
 <div class="bottom">
 <a href="#">Sports</a>
 <a href="#" class="home">Home</a>
@@ -265,6 +269,11 @@ document.getElementById("gameBox").style.display="none";
 document.getElementById("gameFrame").src="";
 }
 
+/* ADD */
+function refreshBalance(){
+updateUI();
+}
+
 /* LOGIN UI */
 function updateUI(){
 
@@ -274,12 +283,14 @@ let logo=document.getElementById("siteLogo");
 let bet=document.getElementById("betText");
 let logout=document.getElementById("logoutBtn");
 let bar=document.getElementById("userBar");
+let betBar=document.getElementById("betBar");
 
 if(!user){
 logo.style.display="block";
 bet.style.display="none";
 logout.style.display="none";
 bar.style.display="none";
+betBar.style.display="none";
 return;
 }
 
@@ -287,6 +298,7 @@ logo.style.display="none";
 bet.style.display="inline-block";
 logout.style.display="inline-block";
 bar.style.display="block";
+betBar.style.display="block";
 
 document.getElementById("userName").innerText=user;
 
