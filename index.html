@@ -25,17 +25,17 @@ min-height:60px;
 background:linear-gradient(90deg,#001a00,#00aa00,#001a00);
 }
 
-.logo{
-display:flex;
-align-items:center;
-gap:6px;
-}
-
+/* LOGO */
 .logo img{
 height:55px;
 }
 
-/* AUTH */
+.logo{
+display:flex;
+align-items:center;
+}
+
+/* AUTH BUTTONS */
 .btns a{
 padding:8px 12px;
 margin-left:6px;
@@ -48,17 +48,44 @@ font-size:14px;
 .signup{background:#111;color:#fff}
 .login{background:#9cff00;color:#000}
 
+/* BET BAR */
+#betBar{
+display:none;
+width:100%;
+}
+
+.betBox{
+display:flex;
+gap:10px;
+align-items:center;
+width:100%;
+}
+
+.balanceBox{
+flex:1;
+background:#222;
+padding:10px;
+border-radius:10px;
+}
+
+.actionBtn{
+background:#333;
+padding:10px;
+border-radius:10px;
+cursor:pointer;
+}
+
 /* SLIDER */
 .slider-box{
 margin-bottom:12px;
 overflow:hidden;
-border-radius:14px
+border-radius:14px;
 }
 
 .slider-img{
 width:100%;
 height:55px;
-object-fit:cover
+object-fit:cover;
 }
 
 /* BANNER */
@@ -114,7 +141,7 @@ z-index:999;
 #gameFrame{
 width:100%;
 height:100%;
-border:none
+border:none;
 }
 
 .closeBtn{
@@ -125,33 +152,6 @@ background:red;
 color:#fff;
 padding:8px 12px;
 border:none;
-}
-
-/* BET BAR */
-#betBar{
-display:none;
-padding:10px;
-background:#002b00;
-}
-
-#betBar .box{
-display:flex;
-gap:10px;
-align-items:center;
-}
-
-.balanceBox{
-flex:1;
-background:#222;
-padding:10px;
-border-radius:10px;
-}
-
-.actionBtn{
-background:#333;
-padding:10px;
-border-radius:10px;
-cursor:pointer;
 }
 
 /* BOTTOM */
@@ -173,7 +173,6 @@ text-decoration:none;
 }
 
 .home{color:#9cff00}
-
 </style>
 </head>
 
@@ -181,21 +180,14 @@ text-decoration:none;
 
 <header>
 
-<div class="logo">
-<img src="logo.png" id="siteLogo">
+<!-- LOGO (before login) -->
+<div class="logo" id="logoBox">
+<img src="logo.png">
 </div>
 
-<div class="btns">
-<a href="#" class="signup">Sign Up</a>
-<a href="login.html" class="login">Login</a>
-<a href="#" id="logoutBtn" class="login" style="display:none;" onclick="logout()">Logout</a>
-</div>
-
-</header>
-
-<!-- BET BAR -->
+<!-- BET BAR (after login) -->
 <div id="betBar">
-<div class="box">
+<div class="betBox">
 
 <div class="balanceBox">
 Main <span id="balance">0.00</span>  
@@ -208,19 +200,28 @@ Main <span id="balance">0.00</span>
 </div>
 </div>
 
+<!-- BUTTONS -->
+<div class="btns">
+<a href="#" class="signup">Sign Up</a>
+<a href="login.html" class="login">Login</a>
+<a href="#" id="logoutBtn" class="login" style="display:none;" onclick="logout()">Logout</a>
+</div>
+
+</header>
+
 <div class="wrap">
 
 <div class="slider-box">
 <img class="slider-img" src="slider.png">
 </div>
 
-<div class="banner"><img src="banner1.png" onclick="openGame('https://example.com')"></div>
-<div class="banner"><img src="banner2.png" onclick="openGame('https://example.com')"></div>
-<div class="banner"><img src="banner3.png" onclick="openGame('https://example.com')"></div>
-<div class="banner"><img src="banner4.png" onclick="openGame('https://example.com')"></div>
+<div class="banner"><img src="banner1.png"></div>
+<div class="banner"><img src="banner2.png"></div>
+<div class="banner"><img src="banner3.png"></div>
+<div class="banner"><img src="banner4.png"></div>
 
 <div class="small">
-<!-- তোমার সব small images এখানে থাকবে -->
+<!-- 30 images here -->
 </div>
 
 </div>
@@ -261,22 +262,22 @@ updateUI();
 alert("Balance Updated 🔄");
 }
 
-/* LOGIN CONTROL */
+/* LOGIN SYSTEM */
 function updateUI(){
 
 let user = localStorage.getItem("currentUser");
 
-let logo = document.getElementById("siteLogo");
-let logout = document.getElementById("logoutBtn");
+let logoBox = document.getElementById("logoBox");
 let betBar = document.getElementById("betBar");
+let logout = document.getElementById("logoutBtn");
 
 let loginBtn = document.querySelector(".login");
 let signupBtn = document.querySelector(".signup");
 
 if(!user){
-logo.style.display="block";
-logout.style.display="none";
+logoBox.style.display="block";
 betBar.style.display="none";
+logout.style.display="none";
 
 loginBtn.style.display="inline-block";
 signupBtn.style.display="inline-block";
@@ -285,9 +286,9 @@ return;
 }
 
 /* AFTER LOGIN */
-logo.style.display="block";
-logout.style.display="inline-block";
+logoBox.style.display="none";
 betBar.style.display="block";
+logout.style.display="inline-block";
 
 loginBtn.style.display="none";
 signupBtn.style.display="none";
@@ -315,9 +316,7 @@ let i = 0;
 
 setInterval(() => {
 i++;
-if(i >= imgs.length){
-i = 0;
-}
+if(i >= imgs.length) i = 0;
 document.querySelector(".slider-img").src = imgs[i];
 }, 2000);
 
