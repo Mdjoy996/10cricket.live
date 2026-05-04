@@ -24,22 +24,9 @@ padding:10px;
 background:linear-gradient(90deg,#001a00,#00aa00,#001a00);
 }
 
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
 .logo img{height:55px}
 
-#betText{
-display:none;
-font-size:22px;
-font-weight:bold;
-color:#9cff00;
-}
-
-/* AUTH BUTTONS */
+/* AUTH */
 .btns a{
 padding:8px 12px;
 margin-left:6px;
@@ -50,6 +37,32 @@ font-size:14px;
 }
 .signup{background:#111;color:#fff}
 .login{background:#9cff00;color:#000}
+
+/* BET BAR */
+#betBar{
+display:none;
+padding:10px;
+background:#002b00;
+}
+
+.betRow{
+display:flex;
+gap:10px;
+align-items:center;
+}
+
+.betBox{
+background:#333;
+padding:10px 15px;
+border-radius:10px;
+}
+
+.betMain{
+flex:1;
+background:#222;
+padding:10px;
+border-radius:10px;
+}
 
 /* SLIDER */
 .slider-box{margin-bottom:12px;overflow:hidden;border-radius:14px}
@@ -91,32 +104,6 @@ background:#111;
 width:100%;
 height:100%;
 object-fit:cover;
-}
-
-/* BET BAR */
-#betBar{
-display:none;
-padding:10px;
-background:#002b00;
-}
-
-.betRow{
-display:flex;
-gap:10px;
-align-items:center;
-}
-
-.betBox{
-background:#333;
-padding:10px 15px;
-border-radius:10px;
-}
-
-.betMain{
-flex:1;
-background:#222;
-padding:10px;
-border-radius:10px;
 }
 
 /* POPUP */
@@ -163,11 +150,11 @@ text-decoration:none;
 
 <body>
 
+<!-- HEADER -->
 <header>
 
 <div class="logo">
 <img src="logo.png" id="siteLogo">
-<span id="betText">BET</span>
 </div>
 
 <div class="btns" id="authBtns">
@@ -178,7 +165,7 @@ text-decoration:none;
 
 </header>
 
-<!-- BET BAR (LOGIN AFTER SHOW) -->
+<!-- BET BAR (NOW UNDER HEADER) -->
 <div id="betBar">
 
 <div class="betRow">
@@ -195,9 +182,10 @@ Exposure <span id="exposureVal">0.00</span>
 <div class="betBox">⚙</div>
 
 </div>
+
 </div>
 
-<!-- SLIDER -->
+<!-- CONTENT -->
 <div class="wrap">
 
 <div class="slider-box">
@@ -210,6 +198,7 @@ Exposure <span id="exposureVal">0.00</span>
 <div class="banner"><img src="banner4.png"></div>
 
 <div class="small">
+
 <div class="card"><img src="small1.png"></div>
 <div class="card"><img src="small2.png"></div>
 <div class="card"><img src="small3.png"></div>
@@ -220,14 +209,12 @@ Exposure <span id="exposureVal">0.00</span>
 <div class="card"><img src="small8.png"></div>
 <div class="card"><img src="small9.png"></div>
 <div class="card"><img src="small10.png"></div>
-</div>
 
 </div>
 
-<div style="text-align:center;padding:15px;font-size:12px;color:#fff;opacity:0.7;">
-© 2026 10cricket.live
 </div>
 
+<!-- FOOTER -->
 <footer style="background:#0b0b0b;color:#fff;padding:25px;text-align:center;">
 © 2026 10cricket.live
 </footer>
@@ -238,7 +225,7 @@ Exposure <span id="exposureVal">0.00</span>
 <iframe id="gameFrame"></iframe>
 </div>
 
-<!-- BOTTOM MENU -->
+<!-- BOTTOM -->
 <div class="bottom">
 <a href="#">Sports</a>
 <a href="#" class="home">Home</a>
@@ -257,7 +244,7 @@ document.getElementById("gameBox").style.display="none";
 document.getElementById("gameFrame").src="";
 }
 
-/* UI CONTROL */
+/* UI */
 function updateUI(){
 
 let user = localStorage.getItem("currentUser");
@@ -265,24 +252,17 @@ let user = localStorage.getItem("currentUser");
 let auth = document.getElementById("authBtns");
 let logout = document.getElementById("logoutBtn");
 let betBar = document.getElementById("betBar");
-let betText = document.getElementById("betText");
-let logo = document.getElementById("siteLogo");
 
 if(!user){
 auth.style.display="block";
 logout.style.display="none";
 betBar.style.display="none";
-betText.style.display="none";
-logo.style.display="block";
 return;
 }
 
-/* LOGIN */
 auth.style.display="none";
 logout.style.display="inline-block";
 betBar.style.display="block";
-betText.style.display="inline-block";
-logo.style.display="none";
 
 document.getElementById("balanceVal").innerText="0.00";
 document.getElementById("exposureVal").innerText="0.00";
@@ -294,7 +274,7 @@ location.reload();
 }
 
 function refreshBalance(){
-alert("Balance Updated 🔄");
+alert("Updated 🔄");
 }
 
 window.onload=updateUI;
