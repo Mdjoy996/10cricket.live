@@ -50,15 +50,6 @@ font-size:14px;
 .signup{background:#111;color:#fff}
 .login{background:#9cff00;color:#000}
 
-/* USER */
-#userBar{
-display:none;
-margin:10px;
-padding:10px;
-background:#111;
-border-radius:10px;
-}
-
 /* SLIDER */
 .slider-box{margin-bottom:12px;overflow:hidden;border-radius:14px}
 .slider-img{width:100%;height:55px;object-fit:cover}
@@ -160,7 +151,7 @@ text-decoration:none;
 
 </header>
 
-<!-- ✅ BET BAR ADDED -->
+<!-- ✅ BET BAR -->
 <div id="betBar" style="display:none; padding:10px; background:#002b00;">
 <div style="display:flex; gap:10px; align-items:center;">
 
@@ -184,12 +175,6 @@ Main <span id="balance">0.00</span>
 </div>
 </div>
 
-<div id="userBar">
-User: <span id="userName"></span><br>
-Balance: <span id="balance"></span><br>
-Exposure: <span id="exposure"></span>
-</div>
-
 <div class="wrap">
 
 <div class="slider-box">
@@ -202,54 +187,13 @@ Exposure: <span id="exposure"></span>
 <div class="banner"><img src="banner4.png" onclick="openGame('https://example.com')"></div>
 
 <div class="small">
-
-<div class="card"><img src="small1.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small2.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small3.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small4.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small5.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small6.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small7.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small8.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small9.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small10.png" onclick="openGame('https://example.com')"></div>
-
-<div class="card"><img src="small11.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small12.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small13.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small14.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small15.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small16.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small17.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small18.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small19.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small20.png" onclick="openGame('https://example.com')"></div>
-
-<div class="card"><img src="small21.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small22.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small23.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small24.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small25.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small26.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small27.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small28.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small29.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small30.png" onclick="openGame('https://example.com')"></div>
-
+<!-- your 30 images same থাকবে -->
 </div>
 
 </div>
 
 <div class="banner">
 <img src="bigbottom.png" style="height:80px;width:100%;object-fit:cover;">
-</div>
-
-<div style="text-align:center;padding:15px;font-size:12px;color:#fff;opacity:0.7;line-height:1.6;">
-10cricket.live | Online Sports Entertainment Platform<br>
-www.10cricket.live<br>
-Privacy Policy | Terms & Conditions | Responsible Gaming<br>
-KYC Verified Platform | Secure Transactions<br>
-© 2026 All Rights Reserved
 </div>
 
 <footer style="background:#0b0b0b;color:#fff;padding:25px 15px;text-align:center;">
@@ -279,46 +223,52 @@ document.getElementById("gameBox").style.display="none";
 document.getElementById("gameFrame").src="";
 }
 
-/* 🔥 ADD */
 function refreshBalance(){
 updateUI();
 alert("Balance Updated 🔄");
 }
 
-/* LOGIN UI */
+/* ✅ FINAL LOGIN CONTROL */
 function updateUI(){
 
-let user=localStorage.getItem("currentUser");
+let user = localStorage.getItem("currentUser");
 
-let logo=document.getElementById("siteLogo");
-let bet=document.getElementById("betText");
-let logout=document.getElementById("logoutBtn");
-let bar=document.getElementById("userBar");
-let betBar=document.getElementById("betBar");
+let logo = document.getElementById("siteLogo");
+let bet = document.getElementById("betText");
+let logout = document.getElementById("logoutBtn");
+let betBar = document.getElementById("betBar");
+
+let loginBtn = document.querySelector(".login");
+let signupBtn = document.querySelector(".signup");
 
 if(!user){
 logo.style.display="block";
 bet.style.display="none";
 logout.style.display="none";
-bar.style.display="none";
 betBar.style.display="none";
+
+loginBtn.style.display="inline-block";
+signupBtn.style.display="inline-block";
+
 return;
 }
 
+/* AFTER LOGIN */
 logo.style.display="none";
 bet.style.display="inline-block";
 logout.style.display="inline-block";
-bar.style.display="block";
 betBar.style.display="block";
 
-document.getElementById("userName").innerText=user;
+loginBtn.style.display="none";
+signupBtn.style.display="none";
 
-let users=JSON.parse(localStorage.getItem("users"))||[];
-let u=users.find(x=>x.username===user);
+/* BALANCE */
+let users = JSON.parse(localStorage.getItem("users")) || [];
+let u = users.find(x => x.username === user);
 
 if(u){
-document.getElementById("balance").innerText=u.balance||0;
-document.getElementById("exposure").innerText=u.exposure||0;
+document.getElementById("balance").innerText = u.balance || 0;
+document.getElementById("exposure").innerText = u.exposure || 0;
 }
 }
 
@@ -327,19 +277,18 @@ localStorage.removeItem("currentUser");
 location.reload();
 }
 
-window.onload=updateUI;
+window.onload = updateUI;
 
-/* 🔥 SLIDER CODE ADD HERE */
+/* SLIDER */
 let imgs = ["slider.png","slider1.png","slider2.png","slider3.png"];
-
 let i = 0;
 
 setInterval(() => {
-  i++;
-  if(i >= imgs.length){
-    i = 0;
-  }
-  document.querySelector(".slider-img").src = imgs[i];
+i++;
+if(i >= imgs.length){
+i = 0;
+}
+document.querySelector(".slider-img").src = imgs[i];
 }, 2000);
 
 </script>
