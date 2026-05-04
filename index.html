@@ -13,6 +13,17 @@ font-family:Arial;
 color:#fff;
 padding-bottom:120px;
 }
+
+/* USER BAR */
+#userBar{
+display:none;
+margin:10px;
+padding:10px;
+background:#111;
+border-radius:10px;
+}
+
+/* slider */
 .slider-box{
   margin-bottom:12px;
   border:none;
@@ -27,7 +38,7 @@ padding-bottom:120px;
   object-fit:cover;
   display:block;
 }
-  
+
 /* Header */
 header{
 display:flex;
@@ -72,7 +83,6 @@ width:100%;
 height:120px;
 object-fit:cover;
 display:block;
-
 }
 
 /* Small Banner */
@@ -145,74 +155,83 @@ text-decoration:none;
 <body>
 
 <header>
-  
 <div class="logo">
 <img src="logo.png">
 </div>
 
-</div>
-  
 <div class="btns">
 <a href="#" class="signup">Sign Up</a>
 <a href="login.html" class="login">Login</a>
 </div>
-  
 </header>
 
+<!-- 🔥 USER INFO (FIXED PART) -->
+<div id="userBar">
+User: <span id="userName"></span><br>
+Balance: <span id="balance"></span><br>
+Exposure: <span id="exposure"></span>
+</div>
+
 <div class="wrap">
-  
-<!-- NEW SLIDER (NO CHANGE OLD BANNERS) -->
+
+<!-- SLIDER -->
 <div class="slider-box">
   <img class="slider-img" src="slider.png">
 </div>
-  
+
 <!-- TOP BANNER -->
-<div class="banner"><img src="banner1.png" onclick="openGame('https://example.com')"></div>
-<div class="banner"><img src="banner2.png" onclick="openGame('https://example.com')"></div>
-<div class="banner"><img src="banner3.png" onclick="openGame('https://example.com')"></div>
-<div class="banner"><img src="banner4.png" onclick="openGame('https://example.com')"></div>
+<div class="banner"><img src="banner1.png"></div>
+<div class="banner"><img src="banner2.png"></div>
+<div class="banner"><img src="banner3.png"></div>
+<div class="banner"><img src="banner4.png"></div>
 
 <!-- SMALL -->
 <div class="small">
 
-<div class="card"><img src="small1.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small2.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small3.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small4.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small5.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small6.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small7.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small8.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small9.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small10.png" onclick="openGame('https://example.com')"></div>
+<div class="card"><img src="small1.png"></div>
+<div class="card"><img src="small2.png"></div>
+<div class="card"><img src="small3.png"></div>
+<div class="card"><img src="small4.png"></div>
 
-<div class="card"><img src="small11.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small12.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small13.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small14.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small15.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small16.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small17.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small18.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small19.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small20.png" onclick="openGame('https://example.com')"></div>
+<div class="card"><img src="small5.png"></div>
+<div class="card"><img src="small6.png"></div>
+<div class="card"><img src="small7.png"></div>
+<div class="card"><img src="small8.png"></div>
 
-<div class="card"><img src="small21.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small22.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small23.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small24.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small25.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small26.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small27.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small28.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small29.png" onclick="openGame('https://example.com')"></div>
-<div class="card"><img src="small30.png" onclick="openGame('https://example.com')"></div>
+<div class="card"><img src="small9.png"></div>
+<div class="card"><img src="small10.png"></div>
+
+<div class="card"><img src="small11.png"></div>
+<div class="card"><img src="small12.png"></div>
+<div class="card"><img src="small13.png"></div>
+<div class="card"><img src="small14.png"></div>
+
+<div class="card"><img src="small15.png"></div>
+<div class="card"><img src="small16.png"></div>
+<div class="card"><img src="small17.png"></div>
+<div class="card"><img src="small18.png"></div>
+
+<div class="card"><img src="small19.png"></div>
+<div class="card"><img src="small20.png"></div>
+
+<div class="card"><img src="small21.png"></div>
+<div class="card"><img src="small22.png"></div>
+<div class="card"><img src="small23.png"></div>
+<div class="card"><img src="small24.png"></div>
+
+<div class="card"><img src="small25.png"></div>
+<div class="card"><img src="small26.png"></div>
+<div class="card"><img src="small27.png"></div>
+<div class="card"><img src="small28.png"></div>
+
+<div class="card"><img src="small29.png"></div>
+<div class="card"><img src="small30.png"></div>
 
 </div>
 
 <!-- BIG -->
 <div class="banner">
-<img src="bigbottom.png" style="height:80px; width:100%; object-fit:cover;" onclick="openGame('https://example.com')">
+<img src="bigbottom.png" style="height:80px;width:100%;object-fit:cover;">
 </div>
 
 </div>
@@ -222,21 +241,7 @@ text-decoration:none;
 <button class="closeBtn" onclick="closeGame()">X</button>
 <iframe id="gameFrame"></iframe>
 </div>
-  
-<script>
-let imgs = ["slider.png","slider1.png","slider2.png","slider3.png"];
 
-let i = 0;
-
-setInterval(() => {
-  i++;
-  if(i >= imgs.length){
-    i = 0;
-  }
-  document.querySelector(".slider-img").src = imgs[i];
-}, 2000);
-</script>
-  
 <script>
 function openGame(link){
 document.getElementById("gameBox").style.display="block";
@@ -248,71 +253,34 @@ document.getElementById("gameFrame").src="";
 }
 </script>
 
-<div class="bottom">
-<a href="#">Sports</a>
-<a href="#" class="home">Home</a>
-<a href="#">Account</a>
-</div>
-<!-- FOOTER START -->
-
-<footer style="background:#0b0b0b;color:#fff;padding:25px 15px;text-align:center;margin-top:40px;">
-
-<p style="margin:0;font-size:14px;opacity:0.8;">
-© 2026 10cricket.live | All Rights Reserved
-</p>
-
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;font-size:13px;margin-top:10px;">
-
-<a href="#" style="color:#fff;text-decoration:none;">Privacy Policy</a>
-<a href="#" style="color:#fff;text-decoration:none;">Terms and Conditions</a>
-<a href="#" style="color:#fff;text-decoration:none;">Rules & Regulations</a>
-<a href="#" style="color:#fff;text-decoration:none;">KYC</a>
-<a href="#" style="color:#fff;text-decoration:none;">Responsible Gaming</a>
-<a href="#" style="color:#fff;text-decoration:none;">About Us</a>
-<a href="#" style="color:#fff;text-decoration:none;">Self-exclusion Policy</a>
-<a href="#" style="color:#fff;text-decoration:none;">Underage Policy</a>
-
-</div>
-
-<p style="margin-top:15px;font-size:12px;opacity:0.6;">
-This platform is for entertainment and informational purposes only.
-</p>
-
-</footer>
-
-<div style="text-align:center;padding:15px;font-size:12px;color:#000;">
-All users must agree to our policies before using 10cricket.live services.
-</div>
-
-<!-- FOOTER END -->
-  
 <script>
 function updateUserUI(){
-let currentUser = localStorage.getItem("currentUser");
 
+let currentUser = localStorage.getItem("currentUser");
 let userBar = document.getElementById("userBar");
 
+if(!userBar) return;
+
 if(!currentUser){
-    if(userBar) userBar.style.display = "none";
-    return;
+userBar.style.display="none";
+return;
 }
 
-if(userBar) userBar.style.display = "block";
+userBar.style.display="block";
 
-document.getElementById("userName").innerText = currentUser;
+document.getElementById("userName").innerText=currentUser;
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 let user = users.find(u => u.username === currentUser);
 
 if(user){
-    document.getElementById("balance").innerText = user.balance || 0;
-    document.getElementById("exposure").innerText = user.exposure || 0;
+document.getElementById("balance").innerText=user.balance || 0;
+document.getElementById("exposure").innerText=user.exposure || 0;
 }
 }
 
-updateUserUI();
-window.addEventListener("storage", updateUserUI);
+window.onload = updateUserUI;
 </script>
-  
+
 </body>
 </html>
