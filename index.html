@@ -284,43 +284,33 @@ All users must agree to our policies before using 10cricket.live services.
 </div>
 
 <!-- FOOTER END -->
-  <script>
-
+  
+<script>
+function updateUserUI(){
 let currentUser = localStorage.getItem("currentUser");
 
-if(currentUser){
+let userBar = document.getElementById("userBar");
 
-document.getElementById("userBar").style.display = "block";
-
-document.getElementById("userName").innerText = currentUser;
-
-loadBalance();
-
+if(!currentUser){
+    if(userBar) userBar.style.display = "none";
+    return;
 }
 
-function loadBalance(){
+if(userBar) userBar.style.display = "block";
+
+document.getElementById("userName").innerText = currentUser;
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 let user = users.find(u => u.username === currentUser);
 
 if(user){
-
-document.getElementById("balance").innerText = user.balance || 0;
-document.getElementById("exposure").innerText = user.exposure || 0;
-
+    document.getElementById("balance").innerText = user.balance || 0;
+    document.getElementById("exposure").innerText = user.exposure || 0;
+}
 }
 
-}
-
-function refreshBalance(){
-loadBalance();
-alert("Balance Updated 🔄");
-}
-
-function logout(){
-localStorage.removeItem("currentUser");
-location.reload();
-}
+updateUserUI();
+window.addEventListener("storage", updateUserUI);
 </script>
   
 </body>
