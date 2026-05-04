@@ -148,7 +148,6 @@ color:#000;
 <input type="text" id="username" placeholder="Username" required>
 </div>
 
-<!-- PASSWORD WITH EYE ICON -->
 <div class="inputBox passwordBox">
   <input type="password" id="password" placeholder="Password" required>
   <span class="toggle" onclick="togglePassword()">👁</span>
@@ -207,8 +206,24 @@ let pass = document.getElementById("password").value;
 
 if(user === "admin" && pass === "1234"){
 
-// ✅ শুধু এই লাইনটা add করা হয়েছে
+// ✅ CURRENT USER SAVE
 localStorage.setItem("currentUser", user);
+
+// ✅ USERS LIST (balance system)
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+// check user exists
+let existingUser = users.find(u => u.username === user);
+
+// if not exist → create
+if(!existingUser){
+users.push({
+    username: user,
+    balance: 1000,
+    exposure: 0
+});
+localStorage.setItem("users", JSON.stringify(users));
+}
 
 alert("Login Successful ✅");
 window.location.href = "index.html";
