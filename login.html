@@ -194,26 +194,6 @@ let pass = document.getElementById("password").value;
 
 if(user === "admin" && pass === "1234"){
 
-// save current user
-localStorage.setItem("currentUser", user);
-
-// users system
-let users = JSON.parse(localStorage.getItem("users")) || [];
-
-// find user
-let existingUser = users.find(u => u.username === user);
-
-if(!existingUser){
-users.push({
-    username: user,
-    balance: 1000,
-    exposure: 0
-});
-} else {
-existingUser.balance = existingUser.balance || 1000;
-existingUser.exposure = existingUser.exposure || 0;
-}
-
 localStorage.setItem("users", JSON.stringify(users));
 
 alert("Login Successful ✅");
