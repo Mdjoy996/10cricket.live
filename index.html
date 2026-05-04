@@ -275,25 +275,24 @@ alert("Balance Updated 🔄");
 }
 
 /* LOGIN UI */
+
 function updateUI(){
 
-let user=localStorage.getItem("currentUser");
+let user = localStorage.getItem("currentUser");
 
-let logo=document.getElementById("siteLogo");
-let bet=document.getElementById("betText");
-let logout=document.getElementById("logoutBtn");
-let bar=document.getElementById("userBar");
-let betBar=document.getElementById("betBar");
+let logo = document.getElementById("siteLogo");
+let logout = document.getElementById("logoutBtn");
 
 if(!user){
 logo.style.display="block";
-bet.style.display="none";
 logout.style.display="none";
-bar.style.display="none";
-betBar.style.display="none";
 return;
 }
 
+logo.style.display="none";
+bet.style.display="inline-block";
+logout.style.display="inline-block";
+}
 logo.style.display="none";
 bet.style.display="inline-block";
 logout.style.display="inline-block";
