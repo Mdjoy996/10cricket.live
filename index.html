@@ -155,6 +155,7 @@ text-decoration:none;
 <div class="btns">
 <a href="#" class="signup">Sign Up</a>
 <a href="login.html" class="login">Login</a>
+<a href="#" id="logoutBtn" class="login" style="display:none;" onclick="logout()">Logout</a>
 </div>
 
 </header>
@@ -314,6 +315,17 @@ document.getElementById("userName").innerText=user;
 
 let users=JSON.parse(localStorage.getItem("users"))||[];
 let u=users.find(x=>x.username===user);
+
+if(u){
+document.getElementById("balance").innerText=u.balance||0;
+document.getElementById("exposure").innerText=u.exposure||0;
+}
+}
+
+function logout(){
+localStorage.removeItem("currentUser");
+location.reload();
+}
 
 window.onload=updateUI;
 
