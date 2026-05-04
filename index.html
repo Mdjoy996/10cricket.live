@@ -7,6 +7,7 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
 background:#000;
 font-family:Arial;
@@ -20,22 +21,18 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:10px;
+min-height:60px;
 background:linear-gradient(90deg,#001a00,#00aa00,#001a00);
 }
 
 .logo{
 display:flex;
 align-items:center;
-gap:10px;
+gap:6px;
 }
 
-.logo img{height:55px}
-
-#betText{
-display:none;
-font-size:22px;
-font-weight:bold;
-color:#9cff00;
+.logo img{
+height:55px;
 }
 
 /* AUTH */
@@ -47,12 +44,22 @@ text-decoration:none;
 font-weight:bold;
 font-size:14px;
 }
+
 .signup{background:#111;color:#fff}
 .login{background:#9cff00;color:#000}
 
 /* SLIDER */
-.slider-box{margin-bottom:12px;overflow:hidden;border-radius:14px}
-.slider-img{width:100%;height:55px;object-fit:cover}
+.slider-box{
+margin-bottom:12px;
+overflow:hidden;
+border-radius:14px
+}
+
+.slider-img{
+width:100%;
+height:55px;
+object-fit:cover
+}
 
 /* BANNER */
 .wrap{padding:6px}
@@ -95,22 +102,56 @@ object-fit:cover;
 /* POPUP */
 #gameBox{
 position:fixed;
-top:0;left:0;
-width:100%;height:100%;
+top:0;
+left:0;
+width:100%;
+height:100%;
 background:#000;
 display:none;
 z-index:999;
 }
 
-#gameFrame{width:100%;height:100%;border:none}
+#gameFrame{
+width:100%;
+height:100%;
+border:none
+}
 
 .closeBtn{
 position:absolute;
-top:10px;right:10px;
+top:10px;
+right:10px;
 background:red;
 color:#fff;
 padding:8px 12px;
 border:none;
+}
+
+/* BET BAR */
+#betBar{
+display:none;
+padding:10px;
+background:#002b00;
+}
+
+#betBar .box{
+display:flex;
+gap:10px;
+align-items:center;
+}
+
+.balanceBox{
+flex:1;
+background:#222;
+padding:10px;
+border-radius:10px;
+}
+
+.actionBtn{
+background:#333;
+padding:10px;
+border-radius:10px;
+cursor:pointer;
 }
 
 /* BOTTOM */
@@ -130,7 +171,9 @@ color:#fff;
 font-size:22px;
 text-decoration:none;
 }
+
 .home{color:#9cff00}
+
 </style>
 </head>
 
@@ -140,7 +183,6 @@ text-decoration:none;
 
 <div class="logo">
 <img src="logo.png" id="siteLogo">
-<span id="betText">BET</span>
 </div>
 
 <div class="btns">
@@ -151,26 +193,17 @@ text-decoration:none;
 
 </header>
 
-<!-- ✅ BET BAR -->
-<div id="betBar" style="display:none; padding:10px; background:#002b00;">
-<div style="display:flex; gap:10px; align-items:center;">
+<!-- BET BAR -->
+<div id="betBar">
+<div class="box">
 
-<div style="background:#333;padding:10px 15px;border-radius:10px;">
-💰 Bets
-</div>
-
-<div style="flex:1;background:#222;padding:10px;border-radius:10px;">
+<div class="balanceBox">
 Main <span id="balance">0.00</span>  
 &nbsp;&nbsp; Exposure <span id="exposure">0.00</span>
 </div>
 
-<div onclick="refreshBalance()" style="background:#333;padding:10px;border-radius:10px;cursor:pointer;">
-🔄
-</div>
-
-<div style="background:#333;padding:10px;border-radius:10px;">
-⚙
-</div>
+<div class="actionBtn" onclick="refreshBalance()">🔄</div>
+<div class="actionBtn">⚙</div>
 
 </div>
 </div>
@@ -187,7 +220,7 @@ Main <span id="balance">0.00</span>
 <div class="banner"><img src="banner4.png" onclick="openGame('https://example.com')"></div>
 
 <div class="small">
-<!-- your 30 images same থাকবে -->
+<!-- তোমার সব small images এখানে থাকবে -->
 </div>
 
 </div>
@@ -228,13 +261,12 @@ updateUI();
 alert("Balance Updated 🔄");
 }
 
-/* ✅ FINAL LOGIN CONTROL */
+/* LOGIN CONTROL */
 function updateUI(){
 
 let user = localStorage.getItem("currentUser");
 
 let logo = document.getElementById("siteLogo");
-let bet = document.getElementById("betText");
 let logout = document.getElementById("logoutBtn");
 let betBar = document.getElementById("betBar");
 
@@ -243,7 +275,6 @@ let signupBtn = document.querySelector(".signup");
 
 if(!user){
 logo.style.display="block";
-bet.style.display="none";
 logout.style.display="none";
 betBar.style.display="none";
 
@@ -254,8 +285,7 @@ return;
 }
 
 /* AFTER LOGIN */
-logo.style.display="none";
-bet.style.display="inline-block";
+logo.style.display="block";
 logout.style.display="inline-block";
 betBar.style.display="block";
 
