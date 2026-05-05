@@ -330,7 +330,22 @@ location.reload();
 }
 
 window.onload=updateUI;
+let imgs = [
+"slider.png",
+"slider1.png",
+"slider2.png",
+"slider3.png"
+];
 
+let i = 0;
+
+setInterval(()=>{
+i = (i + 1) % imgs.length;
+
+let img = document.querySelector(".slider-img");
+
+img.src = imgs[i] + "?v=" + new Date().getTime();
+},2500);
 </script>
 
 </body>
