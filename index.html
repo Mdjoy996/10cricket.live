@@ -142,18 +142,16 @@ gap:0;
 position:relative;
 }
 
-/* 🔥 THICK CENTER LINE */
 .small::before{
 content:"";
 position:absolute;
 top:0;
 left:50%;
-width:5px;   /* 🔥 মোটা করা হয়েছে */
+width:5px;
 height:100%;
 background:rgba(0,255,153,0.9);
 }
 
-/* CARD */
 .card{
 height:150px;
 border-top:2px solid rgba(0,255,153,0.6);
@@ -219,38 +217,20 @@ text-decoration:none;
 }
 .home{color:#9cff00}
 
-/* MOBILE */
-@media (max-width:768px){
-
-.banner{
-border-left:none;
-border-right:none;
-border-radius:0;
-}
-
-.banner img{
-height:130px;
-}
-
-.card{
-height:150px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">
-<img src="logo.png" id="siteLogo">
+<div class="logo" id="logo">
+<img src="logo.png">
 </div>
 
-<div class="btns">
+<div class="btns" id="authBtns">
 <a href="#" class="signup">Sign Up</a>
 <a href="login.html" class="login">Login</a>
+<a href="#" id="logoutBtn" class="login" style="display:none;" onclick="logout()">Logout</a>
 </div>
 </header>
 
@@ -274,23 +254,33 @@ height:150px;
 <img class="slider-img" src="slider.png">
 </div>
 
-<!-- TOP BANNERS -->
-<div class="banner"><img src="banner1.png"></div>
-<div class="banner"><img src="banner2.png"></div>
-<div class="banner"><img src="banner3.png"></div>
-<div class="banner"><img src="banner4.png"></div>
+<!-- ================= BANNERS (CLICK FIXED) ================= -->
+<div class="banner" onclick="openGame('https://example.com')">
+<img src="banner1.png">
+</div>
+
+<div class="banner" onclick="openGame('https://example.com')">
+<img src="banner2.png">
+</div>
+
+<div class="banner" onclick="openGame('https://example.com')">
+<img src="banner3.png">
+</div>
+
+<div class="banner" onclick="openGame('https://example.com')">
+<img src="banner4.png">
+</div>
 
 <!-- SMALL GRID -->
 <div class="small">
 <script>
 for(let i=1;i<=30;i++){
-document.write('<div class="card"><img src="small'+i+'.png"></div>');
+document.write('<div class="card" onclick="openGame(\'https://example.com\')"><img src="small'+i+'.png"></div>');
 }
 </script>
 </div>
 
-<!-- BOTTOM -->
-<div class="banner">
+<div class="banner" onclick="openGame('https://example.com')">
 <img src="bigbottom.png" style="height:80px;">
 </div>
 
@@ -323,6 +313,23 @@ function closeGame(){
 document.getElementById("gameBox").style.display="none";
 document.getElementById("gameFrame").src="";
 }
+
+/* LOGIN SYSTEM */
+function updateUI(){
+let user = localStorage.getItem("currentUser");
+
+document.getElementById("logo").style.display = user ? "none" : "block";
+document.getElementById("authBtns").style.display = user ? "none" : "block";
+document.getElementById("logoutBtn").style.display = user ? "inline-block" : "none";
+document.getElementById("betBar").style.display = user ? "block" : "none";
+}
+
+function logout(){
+localStorage.removeItem("currentUser");
+location.reload();
+}
+
+window.onload=updateUI;
 
 </script>
 
