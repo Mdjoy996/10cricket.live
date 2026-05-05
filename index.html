@@ -28,6 +28,7 @@ transition:0.3s;
 transform:scale(1.05);
 }
 
+/* ▶ PLAY LABEL */
 .banner::after,
 .card::after{
 content:"▶ Play";
@@ -54,7 +55,7 @@ padding:8px 10px;
 background:linear-gradient(90deg,#001a00,#00aa00,#001a00);
 }
 
-.logo img{height:55px}
+.logo img{height:55px;}
 
 .btns a{
 padding:8px 12px;
@@ -67,29 +68,56 @@ font-size:14px;
 .signup{background:#111;color:#fff}
 .login{background:#9cff00;color:#000}
 
-/* BET BAR */
+/* BET BAR (UNCHANGED) */
 #betBar{
 display:none;
 padding:4px 10px;
 background:linear-gradient(90deg,#002b00,#006400,#002b00);
 }
 
-/* SLIDER */
-.slider-box{
-margin:0;
-overflow:hidden;
+.betRow{
+display:flex;
+align-items:center;
+gap:8px;
+background:rgba(0,0,0,0.4);
+padding:4px 6px;
+border-radius:14px;
 }
 
+.betBox{
+background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
+padding:6px 12px;
+border-radius:10px;
+font-size:14px;
+border:1px solid rgba(0,255,0,0.3);
+}
+
+.betMain{
+flex:1;
+background:linear-gradient(135deg,#111,#222);
+padding:4px 10px;
+border-radius:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+#balanceVal{color:#00ff99;font-weight:bold;}
+#exposureVal{color:#ff4d4d;font-weight:bold;}
+
+/* SLIDER */
 .slider-img{
 width:100%;
 height:65px;
 object-fit:cover;
+display:block;
 }
 
 /* BANNER */
 .banner{
 border:2px solid rgba(0,255,153,0.7);
 border-radius:10px;
+overflow:hidden;
 }
 
 .banner img{
@@ -112,8 +140,9 @@ top:0;
 left:50%;
 width:2px;
 height:100%;
-background:rgba(0,255,153,0.7);
-z-index:5;
+background:rgba(0,255,153,0.8);
+z-index:10;
+pointer-events:none;
 }
 
 .card{
@@ -131,29 +160,32 @@ object-fit:cover;
 /* GAME */
 #gameBox{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+top:0;left:0;
+width:100%;height:100%;
 background:#000;
 display:none;
 z-index:999;
 }
 
-#gameFrame{
-width:100%;
-height:100%;
-border:none;
-}
+#gameFrame{width:100%;height:100%;border:none}
 
 .closeBtn{
 position:absolute;
-top:10px;
-right:10px;
+top:10px;right:10px;
 background:red;
 color:#fff;
 padding:8px 12px;
 border:none;
+z-index:1000;
+}
+
+/* FOOTER */
+footer{
+background:#0b0b0b;
+color:#fff;
+padding:20px;
+text-align:center;
+font-size:12px;
 }
 
 /* BOTTOM */
@@ -171,19 +203,33 @@ z-index:50;
 
 .bottom a{
 color:#fff;
+font-size:22px;
 text-decoration:none;
-font-size:18px;
-text-align:center;
-}
-
-/* logout inside account */
-#bottomLogout{
-display:none;
-color:#ff4d4d;
-font-size:12px;
 }
 
 .home{color:#9cff00}
+
+/* 🔥 ACCOUNT POPUP */
+#accountBox{
+position:fixed;
+bottom:70px;
+right:10px;
+background:#111;
+padding:15px;
+border-radius:10px;
+border:1px solid #00ff99;
+display:none;
+z-index:1000;
+}
+
+#accountBox button{
+width:100%;
+padding:10px;
+background:red;
+color:#fff;
+border:none;
+border-radius:6px;
+}
 
 </style>
 </head>
@@ -198,11 +244,23 @@ font-size:12px;
 <div class="btns" id="authBtns">
 <a href="#" class="signup">Sign Up</a>
 <a href="login.html" class="login">Login</a>
-<a href="#" id="logoutBtn" class="login" style="display:none;" onclick="logout()">Logout</a>
 </div>
 </header>
 
-<div id="betBar"></div>
+<!-- ✅ BET BAR SAME -->
+<div id="betBar">
+<div class="betRow">
+<div class="betBox">💰 Bets</div>
+
+<div class="betMain">
+<span>Main <span id="balanceVal">0.00</span></span>
+<span>Exposure <span id="exposureVal">0.00</span></span>
+</div>
+
+<div class="betBox">🔄</div>
+<div class="betBox">⚙</div>
+</div>
+</div>
 
 <div class="wrap">
 
@@ -220,9 +278,7 @@ font-size:12px;
 <div class="small">
 <script>
 for(let i=1;i<=30;i++){
-document.write(`<div class="card" onclick="openGame('https://example.com')">
-<img src="small${i}.png">
-</div>`);
+document.write('<div class="card" onclick="openGame(\'https://example.com\')"><img src="small'+i+'.png"></div>');
 }
 </script>
 </div>
@@ -234,8 +290,7 @@ document.write(`<div class="card" onclick="openGame('https://example.com')">
 </div>
 
 <footer>
-10cricket.live<br>
-© 2026
+10cricket.live | © 2026
 </footer>
 
 <div id="gameBox">
@@ -243,55 +298,59 @@ document.write(`<div class="card" onclick="openGame('https://example.com')">
 <iframe id="gameFrame"></iframe>
 </div>
 
-<!-- BOTTOM -->
+<!-- ✅ ACCOUNT POPUP -->
+<div id="accountBox">
+<button onclick="logout()">Logout</button>
+</div>
+
 <div class="bottom">
 <a href="#">Sports</a>
 <a href="#" class="home">Home</a>
-
-<a href="#">
-Account
-<div id="bottomLogout" onclick="logout()">Logout</div>
-</a>
-
+<a href="#" onclick="toggleAccount()">Account</a>
 </div>
 
 <script>
 
+/* GAME */
 function openGame(l){
-document.getElementById("gameBox").style.display="block";
-document.getElementById("gameFrame").src=l;
+gameBox.style.display="block";
+gameFrame.src=l;
 }
 
 function closeGame(){
-document.getElementById("gameBox").style.display="none";
-document.getElementById("gameFrame").src="";
+gameBox.style.display="none";
+gameFrame.src="";
 }
 
-/* LOGIN */
+/* LOGIN UI */
 function updateUI(){
 let user = localStorage.getItem("currentUser");
 
-document.getElementById("logo").style.display = user ? "none" : "block";
-document.getElementById("authBtns").style.display = user ? "none" : "block";
-document.getElementById("logoutBtn").style.display = user ? "inline-block" : "none";
-document.getElementById("bottomLogout").style.display = user ? "block" : "none";
+logo.style.display = user ? "none" : "block";
+authBtns.style.display = user ? "none" : "block";
+betBar.style.display = user ? "block" : "none";
 }
 
+/* ACCOUNT TOGGLE */
+function toggleAccount(){
+let user = localStorage.getItem("currentUser");
+
+if(!user){
+alert("Login first!");
+return;
+}
+
+let box = document.getElementById("accountBox");
+box.style.display = (box.style.display=="block") ? "none" : "block";
+}
+
+/* LOGOUT */
 function logout(){
 localStorage.removeItem("currentUser");
 location.reload();
 }
 
-window.onload = updateUI;
-
-/* SLIDER */
-let imgs = ["slider.png","slider1.png","slider2.png","slider3.png"];
-let i = 0;
-
-setInterval(()=>{
-i = (i + 1) % imgs.length;
-document.querySelector(".slider-img").src = imgs[i] + "?v=" + Date.now();
-},2500);
+window.onload=updateUI;
 
 </script>
 
