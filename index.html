@@ -7,15 +7,15 @@
 
 <style>
 
-/* BODY */
 body{
 background:#000;
 font-family:Arial;
 color:#fff;
+margin:0;
 padding-bottom:150px;
 }
 
-/* 🔥 BANNER + CARD */
+/* ================= BANNER + CARD ================= */
 .banner, .card{
 position:relative;
 overflow:hidden;
@@ -38,7 +38,6 @@ border-radius:8px;
 border:1px solid #00ff99;
 z-index:10;
 pointer-events:none;
-box-shadow:0 0 8px rgba(0,255,153,0.4);
 }
 
 /* HEADER */
@@ -100,11 +99,11 @@ align-items:center;
 #balanceVal{color:#00ff99;font-weight:bold;}
 #exposureVal{color:#ff4d4d;font-weight:bold;}
 
-/* SLIDER */
+/* ================= SLIDER ================= */
 .slider-box{
-margin-bottom:12px;
+margin:0;
+padding:0;
 overflow:hidden;
-border-radius:14px;
 background:#000;
 line-height:0;
 }
@@ -117,13 +116,13 @@ display:block;
 }
 
 /* WRAP */
-.wrap{padding:10px}
+.wrap{padding:0;}
 
-/* BANNER */
+/* ================= TOP BANNERS ================= */
 .banner{
 margin:0;
-border:2px solid #66ff00;
-border-radius:14px;
+border:2px solid rgba(0,255,153,0.7);
+border-radius:10px;
 overflow:hidden;
 }
 
@@ -135,7 +134,7 @@ display:block;
 cursor:pointer;
 }
 
-/* SMALL GRID */
+/* ================= SMALL GRID ================= */
 .small{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -143,21 +142,24 @@ gap:0;
 position:relative;
 }
 
-/* middle line */
+/* 🔥 THICK CENTER LINE */
 .small::before{
 content:"";
 position:absolute;
 top:0;
 left:50%;
-width:1px;
+width:5px;   /* 🔥 মোটা করা হয়েছে */
 height:100%;
-background:#00ff99;
-opacity:0.6;
+background:rgba(0,255,153,0.9);
 }
 
 /* CARD */
 .card{
 height:150px;
+border-top:2px solid rgba(0,255,153,0.6);
+border-bottom:2px solid rgba(0,255,153,0.6);
+border-left:none;
+border-right:none;
 }
 
 .card img{
@@ -217,25 +219,17 @@ text-decoration:none;
 }
 .home{color:#9cff00}
 
-/* 📱 MOBILE */
+/* MOBILE */
 @media (max-width:768px){
 
-.wrap{padding:0;}
-
 .banner{
-margin:0;
-border-radius:0;
 border-left:none;
 border-right:none;
+border-radius:0;
 }
 
 .banner img{
-width:100%;
 height:130px;
-}
-
-.small{
-grid-template-columns:1fr 1fr;
 }
 
 .card{
@@ -254,10 +248,9 @@ height:150px;
 <img src="logo.png" id="siteLogo">
 </div>
 
-<div class="btns" id="authBtns">
+<div class="btns">
 <a href="#" class="signup">Sign Up</a>
 <a href="login.html" class="login">Login</a>
-<a href="#" id="logoutBtn" class="login" style="display:none;" onclick="logout()">Logout</a>
 </div>
 </header>
 
@@ -270,7 +263,7 @@ height:150px;
 <span>Exposure <span id="exposureVal">0.00</span></span>
 </div>
 
-<div class="betBox" onclick="refreshBalance()">🔄</div>
+<div class="betBox">🔄</div>
 <div class="betBox">⚙</div>
 </div>
 </div>
@@ -281,21 +274,24 @@ height:150px;
 <img class="slider-img" src="slider.png">
 </div>
 
-<div class="banner"><img src="banner1.png" onclick="openGame('https://example.com')"></div>
-<div class="banner"><img src="banner2.png" onclick="openGame('https://example.com')"></div>
-<div class="banner"><img src="banner3.png" onclick="openGame('https://example.com')"></div>
-<div class="banner"><img src="banner4.png" onclick="openGame('https://example.com')"></div>
+<!-- TOP BANNERS -->
+<div class="banner"><img src="banner1.png"></div>
+<div class="banner"><img src="banner2.png"></div>
+<div class="banner"><img src="banner3.png"></div>
+<div class="banner"><img src="banner4.png"></div>
 
+<!-- SMALL GRID -->
 <div class="small">
 <script>
 for(let i=1;i<=30;i++){
-document.write('<div class="card"><img src="small'+i+'.png" onclick="openGame(\'https://example.com\')"></div>');
+document.write('<div class="card"><img src="small'+i+'.png"></div>');
 }
 </script>
 </div>
 
+<!-- BOTTOM -->
 <div class="banner">
-<img src="bigbottom.png" onclick="openGame('https://example.com')" style="height:80px;">
+<img src="bigbottom.png" style="height:80px;">
 </div>
 
 </div>
@@ -327,34 +323,6 @@ function closeGame(){
 document.getElementById("gameBox").style.display="none";
 document.getElementById("gameFrame").src="";
 }
-
-function updateUI(){
-let user = localStorage.getItem("currentUser");
-
-document.getElementById("siteLogo").style.display = user ? "none" : "block";
-document.getElementById("authBtns").style.display = user ? "none" : "block";
-document.getElementById("logoutBtn").style.display = user ? "inline-block" : "none";
-document.getElementById("betBar").style.display = user ? "block" : "none";
-}
-
-function logout(){
-localStorage.removeItem("currentUser");
-location.reload();
-}
-
-function refreshBalance(){
-alert("Updated 🔄");
-}
-
-let imgs = ["slider.png","slider1.png","slider2.png","slider3.png"];
-let i = 0;
-
-setInterval(()=>{
-i = (i+1)%imgs.length;
-document.querySelector(".slider-img").src = imgs[i];
-},2500);
-
-window.onload=updateUI;
 
 </script>
 
