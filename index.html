@@ -7,8 +7,25 @@
 <title>10Cricket</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+/* 🔥 AUTO PLAY TEXT */
+.banner, .card{
+position:relative;
+}
 
+.banner::after,
+.card::after{
+content:"▶ Play";
+position:absolute;
+bottom:8px;
+left:8px;
+color:#00ff99;
+font-size:12px;
+font-weight:bold;
+background:rgba(0,0,0,0.6);
+padding:3px 8px;
+border-radius:6px;
+}
+  
 body{
 background:#000;
 font-family:Arial;
