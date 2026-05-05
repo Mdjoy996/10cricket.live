@@ -38,10 +38,10 @@ font-size:14px;
 .signup{background:#111;color:#fff}
 .login{background:#9cff00;color:#000}
 
-/* 🔥 BET BAR (GORGEOUS) */
+/* BET BAR */
 #betBar{
 display:none;
-padding:4px 10px;   /* 🔥 আগে 8-10 ছিল → কমালাম */
+padding:4px 10px;
 background:linear-gradient(90deg,#002b00,#006400,#002b00);
 }
 
@@ -50,7 +50,7 @@ display:flex;
 align-items:center;
 gap:8px;
 background:rgba(0,0,0,0.4);
-padding:4px 6px;   /* 🔥 কমানো হয়েছে */
+padding:4px 6px;
 border-radius:14px;
 }
 
@@ -65,11 +65,11 @@ border:1px solid rgba(0,255,0,0.3);
 .betMain{
 flex:1;
 background:linear-gradient(135deg,#111,#222);
-padding:4px 10px;   /* 🔥 কমানো */
+padding:4px 10px;
 border-radius:10px;
 display:flex;
 justify-content:space-between;
-align-items:center;  /* 🔥 vertical center */
+align-items:center;
 }
 
 #balanceVal{color:#00ff99;font-weight:bold;}
@@ -91,11 +91,12 @@ object-fit:cover;
 display:block;
 }
 
-/* BANNER */
+/* WRAP */
 .wrap{padding:10px}
 
+/* 🔥 FIXED BANNER (NO GAP) */
 .banner{
-margin-bottom:10px;
+margin:0;              /* 🔥 gap remove */
 border:2px solid #66ff00;
 border-radius:14px;
 overflow:hidden;
@@ -277,7 +278,6 @@ document.getElementById("gameFrame").src="";
 }
 
 function updateUI(){
-
 let user = localStorage.getItem("currentUser");
 
 let logo = document.getElementById("siteLogo");
