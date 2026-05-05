@@ -111,6 +111,8 @@ width:100%;
 height:65px;
 object-fit:cover;
 display:block;
+transition:0.5s;
+opacity:1;
 }
 
 /* BANNER */
@@ -350,6 +352,34 @@ localStorage.removeItem("currentUser");
 location.reload();
 }
 
+  window.onload = function(){
+
+updateUI(); // আগেরটা থাকবে
+
+let imgs = [
+"slider.png",
+"slider1.png",
+"slider2.png",
+"slider3.png"
+];
+
+let i = 0;
+let img = document.querySelector(".slider-img");
+
+setInterval(()=>{
+
+img.style.opacity = "0"; // fade out
+
+setTimeout(()=>{
+i = (i + 1) % imgs.length;
+img.src = imgs[i] + "?t=" + new Date().getTime();
+img.style.opacity = "1"; // fade in
+},300);
+
+},2500);
+
+};
+  
 window.onload=updateUI;
 
 </script>
