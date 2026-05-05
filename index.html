@@ -15,28 +15,33 @@ color:#fff;
 padding-bottom:150px;
 }
 
-/* 🔥 AUTO PLAY TEXT */
+/* 🔥 BANNER + CARD */
 .banner, .card{
 position:relative;
 overflow:hidden;
 cursor:pointer;
 }
 
-/* ▶ PLAY LABEL */
+/* ▶ PLAY LABEL (RIGHT SIDE FIXED) */
 .banner::after,
 .card::after{
 content:"▶ Play";
 position:absolute;
 bottom:8px;
-left:8px;
+right:8px;
+
 color:#00ff99;
 font-size:12px;
 font-weight:bold;
-background:rgba(0,0,0,0.6);
-padding:3px 8px;
-border-radius:6px;
-z-index:5;
-pointer-events:none;   /* 🔥 important fix */
+
+background:rgba(0,0,0,0.75);
+padding:5px 10px;
+border-radius:8px;
+border:1px solid #00ff99;
+
+z-index:10;
+pointer-events:none;
+box-shadow:0 0 8px rgba(0,255,153,0.4);
 }
 
 /* HEADER */
@@ -133,7 +138,7 @@ display:block;
 cursor:pointer;
 }
 
-/* SMALL CARDS */
+/* SMALL GRID */
 .small{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -185,7 +190,7 @@ font-size:12px;
 opacity:0.8;
 }
 
-/* BOTTOM */
+/* BOTTOM MENU */
 .bottom{
 position:fixed;
 bottom:0;
@@ -324,7 +329,6 @@ function refreshBalance(){
 alert("Updated 🔄");
 }
 
-/* SLIDER */
 let imgs = ["slider.png","slider1.png","slider2.png","slider3.png"];
 let i = 0;
 
