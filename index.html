@@ -7,9 +7,10 @@
 <title>10Cricket</title>
 
 <style>
-/* 🔥 AUTO PLAY TEXT */
+/* 🔥 AUTO PLAY TEXT FIXED */
 .banner, .card{
 position:relative;
+overflow:hidden;
 }
 
 .banner::after,
@@ -24,7 +25,16 @@ font-weight:bold;
 background:rgba(0,0,0,0.6);
 padding:3px 8px;
 border-radius:6px;
+z-index:5;              /* 🔥 main fix */
 }
+
+/* 🔥 IMPORTANT */
+.banner img,
+.card img{
+position:relative;
+z-index:1;
+}
+</style>
   
 body{
 background:#000;
