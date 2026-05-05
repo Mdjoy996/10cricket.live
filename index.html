@@ -143,17 +143,28 @@ cursor:pointer;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:0;
+position:relative;
 }
 
 .card{
-height:140px;
-border-radius:6px;
-overflow:hidden;
-background:#111;
+height:150px;
+}
 
-/* 🔥 ONLY TOP & BOTTOM BORDER */
-border-top:1px solid #00ff99;
-border-bottom:1px solid #00ff99;
+/* 🔥 middle vertical line */
+.small::before{
+content:"";
+position:absolute;
+top:0;
+left:50%;
+width:1px;
+height:100%;
+background:#00ff99;
+opacity:0.6;
+}
+
+/* 📱 MOBILE */
+@media (max-width:768px){
+.banner{
 border-left:none;
 border-right:none;
 }
