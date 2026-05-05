@@ -7,15 +7,15 @@
 
 <style>
 
-/* BODY */
 body{
 background:#000;
 font-family:Arial;
 color:#fff;
+margin:0;
 padding-bottom:150px;
 }
 
-/* 🔥 BANNER + CARD */
+/* ================= BANNER + CARD ================= */
 .banner, .card{
 position:relative;
 overflow:hidden;
@@ -100,11 +100,11 @@ align-items:center;
 #balanceVal{color:#00ff99;font-weight:bold;}
 #exposureVal{color:#ff4d4d;font-weight:bold;}
 
-/* SLIDER */
+/* ================= SLIDER ================= */
 .slider-box{
-margin-bottom:12px;
+margin:0;
+padding:0;
 overflow:hidden;
-border-radius:14px;
 background:#000;
 line-height:0;
 }
@@ -117,13 +117,13 @@ display:block;
 }
 
 /* WRAP */
-.wrap{padding:10px}
+.wrap{padding:0;}
 
-/* BANNER */
+/* ================= BANNER (CLICK ENABLED) ================= */
 .banner{
 margin:0;
-border:2px solid #66ff00;
-border-radius:14px;
+border:2px solid rgba(0,255,153,0.6);
+border-radius:10px;
 overflow:hidden;
 }
 
@@ -135,7 +135,7 @@ display:block;
 cursor:pointer;
 }
 
-/* SMALL GRID */
+/* ================= SMALL GRID ================= */
 .small{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -151,13 +151,13 @@ top:0;
 left:50%;
 width:1px;
 height:100%;
-background:#00ff99;
-opacity:0.6;
+background:rgba(0,255,153,0.6);
 }
 
 /* CARD */
 .card{
 height:150px;
+border:1px solid rgba(0,255,153,0.6);
 }
 
 .card img{
@@ -217,25 +217,17 @@ text-decoration:none;
 }
 .home{color:#9cff00}
 
-/* 📱 MOBILE */
+/* MOBILE */
 @media (max-width:768px){
 
-.wrap{padding:0;}
-
 .banner{
-margin:0;
-border-radius:0;
 border-left:none;
 border-right:none;
+border-radius:0;
 }
 
 .banner img{
-width:100%;
 height:130px;
-}
-
-.small{
-grid-template-columns:1fr 1fr;
 }
 
 .card{
@@ -281,6 +273,7 @@ height:150px;
 <img class="slider-img" src="slider.png">
 </div>
 
+<!-- 🔥 CLICK ENABLED BANNERS -->
 <div class="banner"><img src="banner1.png" onclick="openGame('https://example.com')"></div>
 <div class="banner"><img src="banner2.png" onclick="openGame('https://example.com')"></div>
 <div class="banner"><img src="banner3.png" onclick="openGame('https://example.com')"></div>
