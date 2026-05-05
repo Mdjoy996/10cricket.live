@@ -20,9 +20,17 @@ padding-bottom:150px;
 position:relative;
 overflow:hidden;
 cursor:pointer;
+transition:0.3s;
 }
 
-/* ▶ PLAY LABEL */
+/* hover zoom */
+.banner:hover img,
+.card:hover img{
+transform:scale(1.05);
+transition:0.3s;
+}
+
+/* ▶ PLAY LABEL FIX */
 .banner::after,
 .card::after{
 content:"▶ Play";
@@ -36,7 +44,7 @@ background:rgba(0,0,0,0.75);
 padding:5px 10px;
 border-radius:8px;
 border:1px solid #00ff99;
-z-index:10;
+z-index:20;
 pointer-events:none;
 }
 
@@ -49,7 +57,7 @@ padding:8px 10px;
 background:linear-gradient(90deg,#001a00,#00aa00,#001a00);
 }
 
-.logo img{height:55px}
+.logo img{height:55px; transition:0.3s;}
 
 .btns a{
 padding:8px 12px;
@@ -102,10 +110,8 @@ align-items:center;
 /* ================= SLIDER ================= */
 .slider-box{
 margin:0;
-padding:0;
 overflow:hidden;
 background:#000;
-line-height:0;
 }
 
 .slider-img{
@@ -113,6 +119,7 @@ width:100%;
 height:65px;
 object-fit:cover;
 display:block;
+transition:0.5s ease;
 }
 
 /* WRAP */
@@ -131,10 +138,9 @@ width:100%;
 height:120px;
 object-fit:cover;
 display:block;
-cursor:pointer;
 }
 
-/* ================= SMALL GRID ================= */
+/* ================= SMALL GRID FIX ================= */
 .small{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -142,29 +148,34 @@ gap:0;
 position:relative;
 }
 
+/* 🔥 CENTER LINE ALWAYS ABOVE IMAGE */
 .small::before{
 content:"";
 position:absolute;
 top:0;
 left:50%;
-width:5px;
+width:6px;
 height:100%;
-background:rgba(0,255,153,0.9);
+background:rgba(0,255,153,0.95);
+z-index:10;
+box-shadow:0 0 10px #00ff99;
+pointer-events:none;
 }
 
+/* CARD FIX */
 .card{
 height:150px;
 border-top:2px solid rgba(0,255,153,0.6);
 border-bottom:2px solid rgba(0,255,153,0.6);
-border-left:none;
-border-right:none;
+position:relative;
+overflow:hidden;
 }
 
 .card img{
-width:110%;
+width:100%;
 height:100%;
 object-fit:cover;
-cursor:pointer;
+display:block;
 }
 
 /* GAME */
@@ -186,6 +197,7 @@ background:red;
 color:#fff;
 padding:8px 12px;
 border:none;
+z-index:1000;
 }
 
 /* FOOTER */
@@ -208,13 +220,21 @@ justify-content:space-around;
 padding:16px;
 background:#001a00;
 border-top:2px solid #66ff00;
+z-index:50;
 }
 
 .bottom a{
 color:#fff;
 font-size:22px;
 text-decoration:none;
+transition:0.3s;
 }
+
+.bottom a:hover{
+color:#00ff99;
+transform:scale(1.1);
+}
+
 .home{color:#9cff00}
 
 </style>
@@ -254,22 +274,11 @@ text-decoration:none;
 <img class="slider-img" src="slider.png">
 </div>
 
-<!-- ================= BANNERS (CLICK FIXED) ================= -->
-<div class="banner" onclick="openGame('https://example.com')">
-<img src="banner1.png">
-</div>
-
-<div class="banner" onclick="openGame('https://example.com')">
-<img src="banner2.png">
-</div>
-
-<div class="banner" onclick="openGame('https://example.com')">
-<img src="banner3.png">
-</div>
-
-<div class="banner" onclick="openGame('https://example.com')">
-<img src="banner4.png">
-</div>
+<!-- BANNERS -->
+<div class="banner" onclick="openGame('https://example.com')"><img src="banner1.png"></div>
+<div class="banner" onclick="openGame('https://example.com')"><img src="banner2.png"></div>
+<div class="banner" onclick="openGame('https://example.com')"><img src="banner3.png"></div>
+<div class="banner" onclick="openGame('https://example.com')"><img src="banner4.png"></div>
 
 <!-- SMALL GRID -->
 <div class="small">
@@ -314,7 +323,7 @@ document.getElementById("gameBox").style.display="none";
 document.getElementById("gameFrame").src="";
 }
 
-/* LOGIN SYSTEM */
+/* LOGIN SYSTEM FIX */
 function updateUI(){
 let user = localStorage.getItem("currentUser");
 
@@ -330,22 +339,16 @@ location.reload();
 }
 
 window.onload=updateUI;
-let imgs = [
-"slider.png",
-"slider1.png",
-"slider2.png",
-"slider3.png"
-];
 
+/* SLIDER FIX */
+let imgs = ["slider.png","slider1.png","slider2.png","slider3.png"];
 let i = 0;
 
 setInterval(()=>{
 i = (i + 1) % imgs.length;
-
-let img = document.querySelector(".slider-img");
-
-img.src = imgs[i] + "?v=" + new Date().getTime();
+document.querySelector(".slider-img").src = imgs[i] + "?v=" + new Date().getTime();
 },2500);
+
 </script>
 
 </body>
