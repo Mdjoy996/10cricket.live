@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,12 +6,23 @@
 <title>10Cricket</title>
 
 <style>
-/* 🔥 AUTO PLAY TEXT FIXED */
+
+/* BODY */
+body{
+background:#000;
+font-family:Arial;
+color:#fff;
+padding-bottom:150px;
+}
+
+/* 🔥 AUTO PLAY TEXT */
 .banner, .card{
 position:relative;
 overflow:hidden;
+cursor:pointer;
 }
 
+/* ▶ PLAY LABEL */
 .banner::after,
 .card::after{
 content:"▶ Play";
@@ -25,22 +35,8 @@ font-weight:bold;
 background:rgba(0,0,0,0.6);
 padding:3px 8px;
 border-radius:6px;
-z-index:5;              /* 🔥 main fix */
-}
-
-/* 🔥 IMPORTANT */
-.banner img,
-.card img{
-position:relative;
-z-index:1;
-}
-</style>
-  
-body{
-background:#000;
-font-family:Arial;
-color:#fff;
-padding-bottom:150px;
+z-index:5;
+pointer-events:none;   /* 🔥 important fix */
 }
 
 /* HEADER */
@@ -121,9 +117,9 @@ display:block;
 /* WRAP */
 .wrap{padding:10px}
 
-/* 🔥 FIXED BANNER (NO GAP) */
+/* BANNER */
 .banner{
-margin:0;              /* 🔥 gap remove */
+margin:0;
 border:2px solid #66ff00;
 border-radius:14px;
 overflow:hidden;
@@ -137,7 +133,7 @@ display:block;
 cursor:pointer;
 }
 
-/* SMALL */
+/* SMALL CARDS */
 .small{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -146,8 +142,7 @@ gap:0;
 
 .card{
 height:140px;
-border:2px;
-border-radius:2;
+border-radius:2px;
 overflow:hidden;
 background:#111;
 }
@@ -208,14 +203,13 @@ font-size:22px;
 text-decoration:none;
 }
 .home{color:#9cff00}
-</style>
 
+</style>
 </head>
 
 <body>
 
 <header>
-
 <div class="logo">
 <img src="logo.png" id="siteLogo">
 </div>
@@ -225,11 +219,9 @@ text-decoration:none;
 <a href="login.html" class="login">Login</a>
 <a href="#" id="logoutBtn" class="login" style="display:none;" onclick="logout()">Logout</a>
 </div>
-
 </header>
 
 <!-- BET BAR -->
-
 <div id="betBar">
 <div class="betRow">
 
@@ -258,13 +250,11 @@ text-decoration:none;
 <div class="banner"><img src="banner4.png" onclick="openGame('https://example.com')"></div>
 
 <div class="small">
-
 <script>
 for(let i=1;i<=30;i++){
 document.write('<div class="card"><img src="small'+i+'.png" onclick="openGame(\'https://example.com\')"></div>');
 }
 </script>
-
 </div>
 
 <div class="banner">
