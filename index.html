@@ -349,35 +349,17 @@ function logout(){
 localStorage.removeItem("currentUser");
 location.reload();
 }
+  
+window.onload=updateUI;
 
-  window.onload = function(){
-
-updateUI(); // আগেরটা থাকবে
-
-let imgs = [
-"slider.png",
-"slider1.png",
-"slider2.png",
-"slider3.png"
-];
-
+/* SLIDER FIX */
+let imgs = ["slider.png","slider1.png","slider2.png","slider3.png"];
 let i = 0;
-let img = document.querySelector(".slider-img");
 
 setInterval(()=>{
-
-img.style.opacity = "0"; // fade out
-
-setTimeout(()=>{
 i = (i + 1) % imgs.length;
-img.src = imgs[i] + "?t=" + new Date().getTime();
-img.style.opacity = "1"; // fade in
-},300);
-
+document.querySelector(".slider-img").src = imgs[i] + "?v=" + new Date().getTime();
 },2500);
-
-};
- 
 </script>
 
 </body>
