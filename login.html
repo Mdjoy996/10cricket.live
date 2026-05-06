@@ -94,27 +94,28 @@ text-decoration:underline;
 }
 
 /* FOOTER */
-footer{
-background:#0b0b0b;
-color:#fff;
-padding:25px 15px;
-text-align:center;
-margin-top:50px;
-}
-
-.footer-links{
+.support{
 display:flex;
-flex-wrap:wrap;
 justify-content:center;
-gap:12px;
-font-size:13px;
+gap:10px;
+flex-wrap:wrap;
 margin-top:10px;
 }
 
-.footer-links a{
-color:#fff;
-text-decoration:none;
-opacity:0.85;
+.icon-box{
+background:#111;
+color:#00ff99;
+padding:8px 10px;
+border-radius:8px;
+font-size:12px;
+border:1px solid #00ff99;
+cursor:pointer;
+transition:0.3s;
+}
+
+.icon-box:hover{
+background:#00ff99;
+color:#000;
 }
 
 .small{
@@ -165,23 +166,23 @@ color:#000;
 </div>
 
 <!-- FOOTER -->
-<footer>
-<p style="margin:0;font-size:14px;opacity:0.8;">
-© 2026 10cricket.live | All Rights Reserved
-</p>
+<footer class="footer">
 
-<div class="footer-links">
-<a href="#">Privacy Policy</a>
-<a href="#">Terms and Conditions</a>
-<a href="#">Rules & Regulations</a>
-<a href="#">KYC</a>
-<a href="#">Responsible Gaming</a>
-<a href="#">About Us</a>
-</div>
+  <div class="copy">10cricket.live | © 2026</div>
 
-<p class="small">
-This platform is for entertainment purposes only.
-</p>
+  <div class="links">
+    KYC | About Us | Privacy Policy | Responsible Gaming | Terms & Conditions
+  </div>
+
+  <div class="support">
+
+    <div class="icon-box">📱 WhatsApp 1</div>
+    <div class="icon-box">📱 WhatsApp 2</div>
+    <div class="icon-box">💬 IMO</div>
+    <div class="icon-box">🎮 Betfire</div>
+
+  </div>
+
 </footer>
 
 <div class="bottom-text">
