@@ -367,9 +367,7 @@ setInterval(()=>{
 
 i=(i+1)%imgs.length;
 
-<div class="slider-box">
-    <img id="sliderImg" class="slider-img" src="slider.png">
-</div>
+document.getElementById("sliderImg").src = imgs[i]+"?t="+Date.now();
 
 },2500);
   
