@@ -106,11 +106,11 @@ align-items:center;
 #exposureVal{color:#ff4d4d;font-weight:bold;}
 
 /* SLIDER */
-#slider{
-width:50%;
+.slider-img{
+width:100%;
 height:65px;
 object-fit:cover;
-transition:0.5s;
+display:block;
 }
 
 /* BANNER */
@@ -349,17 +349,9 @@ function logout(){
 localStorage.removeItem("currentUser");
 location.reload();
 }
-  
+
 window.onload=updateUI;
 
-/* SLIDER FIX */
-let imgs = ["slider.png","slider1.png","slider2.png","slider3.png"];
-let i = 0;
-
-setInterval(()=>{
-i = (i + 1) % imgs.length;
-document.querySelector(".slider-img").src = imgs[i] + "?v=" + new Date().getTime();
-},2500);
 </script>
 
 </body>
