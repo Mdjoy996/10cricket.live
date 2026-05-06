@@ -349,7 +349,23 @@ function logout(){
 localStorage.removeItem("currentUser");
 location.reload();
 }
+  
+/* SLIDER FIX (CACHE BUST) */
 
+let imgs=["slider.png","slider1.png","slider2.png","slider3.png"];
+
+let i=0;
+
+
+
+setInterval(()=>{
+
+i=(i+1)%imgs.length;
+
+document.getElementById("sliderImg").src = imgs[i]+"?t="+Date.now();
+
+},2500);
+  
 window.onload=updateUI;
 
 </script>
