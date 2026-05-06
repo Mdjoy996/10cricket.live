@@ -68,7 +68,7 @@ font-size:14px;
 .signup{background:#111;color:#fff}
 .login{background:#9cff00;color:#000}
 
-/* BET BAR (UNCHANGED) */
+/* BET BAR */
 #betBar{
 display:none;
 padding:4px 10px;
@@ -106,11 +106,16 @@ align-items:center;
 #exposureVal{color:#ff4d4d;font-weight:bold;}
 
 /* SLIDER */
+.slider-box{
+overflow:hidden;
+}
+
 .slider-img{
 width:100%;
 height:65px;
 object-fit:cover;
 display:block;
+transition:0.5s;
 }
 
 /* BANNER */
@@ -138,7 +143,7 @@ content:"";
 position:absolute;
 top:0;
 left:50%;
-width:2px;
+width:1px;   /* thinner line FIX */
 height:100%;
 background:rgba(0,255,153,0.8);
 z-index:10;
@@ -149,6 +154,7 @@ pointer-events:none;
 height:150px;
 border-top:2px solid rgba(0,255,153,0.6);
 border-bottom:2px solid rgba(0,255,153,0.6);
+overflow:hidden;
 }
 
 .card img{
@@ -198,7 +204,6 @@ justify-content:space-around;
 padding:16px;
 background:#001a00;
 border-top:2px solid #66ff00;
-z-index:50;
 }
 
 .bottom a{
@@ -209,7 +214,7 @@ text-decoration:none;
 
 .home{color:#9cff00}
 
-/* 🔥 ACCOUNT POPUP */
+/* ACCOUNT */
 #accountBox{
 position:fixed;
 bottom:70px;
@@ -247,25 +252,20 @@ border-radius:6px;
 </div>
 </header>
 
-<!-- ✅ BET BAR SAME -->
 <div id="betBar">
 <div class="betRow">
 <div class="betBox">💰 Bets</div>
-
 <div class="betMain">
 <span>Main <span id="balanceVal">0.00</span></span>
 <span>Exposure <span id="exposureVal">0.00</span></span>
 </div>
-
 <div class="betBox">🔄</div>
 <div class="betBox">⚙</div>
 </div>
 </div>
 
-<div class="wrap">
-
 <div class="slider-box">
-<img class="slider-img" src="slider.png">
+<img class="slider-img" id="sliderImg" src="slider.png">
 </div>
 
 <!-- BANNERS -->
@@ -287,18 +287,13 @@ document.write('<div class="card" onclick="openGame(\'https://example.com\')"><i
 <img src="bigbottom.png" style="height:80px;">
 </div>
 
-</div>
-
-<footer>
-10cricket.live | © 2026
-</footer>
+<footer>10cricket.live</footer>
 
 <div id="gameBox">
 <button class="closeBtn" onclick="closeGame()">X</button>
 <iframe id="gameFrame"></iframe>
 </div>
 
-<!-- ✅ ACCOUNT POPUP -->
 <div id="accountBox">
 <button onclick="logout()">Logout</button>
 </div>
@@ -313,42 +308,44 @@ document.write('<div class="card" onclick="openGame(\'https://example.com\')"><i
 
 /* GAME */
 function openGame(l){
-gameBox.style.display="block";
-gameFrame.src=l;
+document.getElementById("gameBox").style.display="block";
+document.getElementById("gameFrame").src=l;
 }
-
 function closeGame(){
-gameBox.style.display="none";
-gameFrame.src="";
+document.getElementById("gameBox").style.display="none";
+document.getElementById("gameFrame").src="";
 }
 
-/* LOGIN UI */
-function updateUI(){
-let user = localStorage.getItem("currentUser");
-
-logo.style.display = user ? "none" : "block";
-authBtns.style.display = user ? "none" : "block";
-betBar.style.display = user ? "block" : "none";
-}
-
-/* ACCOUNT TOGGLE */
+/* ACCOUNT */
 function toggleAccount(){
 let user = localStorage.getItem("currentUser");
-
-if(!user){
-alert("Login first!");
-return;
-}
+if(!user){ alert("Login first"); return; }
 
 let box = document.getElementById("accountBox");
-box.style.display = (box.style.display=="block") ? "none" : "block";
+box.style.display = box.style.display==="block" ? "none" : "block";
 }
 
-/* LOGOUT */
 function logout(){
 localStorage.removeItem("currentUser");
 location.reload();
 }
+
+/* UI */
+function updateUI(){
+let user = localStorage.getItem("currentUser");
+document.getElementById("logo").style.display = user ? "none":"block";
+document.getElementById("authBtns").style.display = user ? "none":"block";
+document.getElementById("betBar").style.display = user ? "block":"none";
+}
+
+/* SLIDER FIX (CACHE BUST) */
+let imgs=["slider.png","slider1.png","slider2.png","slider3.png"];
+let i=0;
+
+setInterval(()=>{
+i=(i+1)%imgs.length;
+document.getElementById("sliderImg").src = imgs[i]+"?t="+Date.now();
+},2500);
 
 window.onload=updateUI;
 
