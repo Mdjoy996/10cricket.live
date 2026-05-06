@@ -50,7 +50,7 @@ background:#f2f2f2;
 box-sizing:border-box;
 }
 
-/* PASSWORD ICON */
+/* PASSWORD */
 .passwordBox{
 position:relative;
 }
@@ -94,6 +94,18 @@ text-decoration:underline;
 }
 
 /* FOOTER */
+.footer{
+margin-top:20px;
+background:#0b0b0b;
+color:#fff;
+padding:15px;
+text-align:center;
+}
+
+.footer .copy{
+margin-bottom:8px;
+}
+
 .support{
 display:flex;
 justify-content:center;
@@ -111,27 +123,24 @@ font-size:12px;
 border:1px solid #00ff99;
 }
 
-/* 🚫 CLICK DISABLE STYLE */
+/* DEMO ONLY (NO CLICK) */
 .icon-box.demo{
 pointer-events:none;
 opacity:0.7;
 }
 
-/* hover effect only visual */
+/* hover only visual */
 .icon-box:hover{
 background:#111;
 color:#00ff99;
 }
 
+/* bottom text */
 .bottom-text{
 text-align:center;
 padding:15px;
 font-size:12px;
 color:#000;
-}
-
-.footer{
-margin-top:20px;
 }
 </style>
 </head>
@@ -153,8 +162,8 @@ margin-top:20px;
 </div>
 
 <div class="inputBox passwordBox">
-  <input type="password" id="password" placeholder="Password" required>
-  <span class="toggle" onclick="togglePassword()">👁</span>
+<input type="password" id="password" placeholder="Password" required>
+<span class="toggle" onclick="togglePassword()">👁</span>
 </div>
 
 <button class="btn" type="submit">LOGIN</button>
@@ -170,21 +179,18 @@ margin-top:20px;
 <!-- FOOTER -->
 <footer class="footer">
 
-  <div class="copy">10cricket.live | © 2026</div>
+<div class="copy">10cricket.live | © 2026</div>
 
-  <div class="links">
-    KYC | About Us | Privacy Policy | Responsible Gaming | Terms & Conditions
-  </div>
+<div>
+KYC | About Us | Privacy Policy | Responsible Gaming | Terms & Conditions
+</div>
 
-  <div class="support">
-
-    <!-- ✅ DEMO ONLY (NO CLICK ACTION) -->
-    <div class="icon-box demo">📱 WhatsApp 1</div>
-    <div class="icon-box demo">📱 WhatsApp 2</div>
-    <div class="icon-box demo">💬 IMO</div>
-    <div class="icon-box demo">🎮 Betfire</div>
-
-  </div>
+<div class="support">
+<div class="icon-box demo">📱 WhatsApp 1</div>
+<div class="icon-box demo">📱 WhatsApp 2</div>
+<div class="icon-box demo">💬 IMO</div>
+<div class="icon-box demo">🎮 Betfire</div>
+</div>
 
 </footer>
 
@@ -195,7 +201,6 @@ All users must agree to our policies before using services.
 <script>
 function togglePassword(){
 let password = document.getElementById("password");
-
 password.type = (password.type === "password") ? "text" : "password";
 }
 
