@@ -109,19 +109,18 @@ padding:8px 10px;
 border-radius:8px;
 font-size:12px;
 border:1px solid #00ff99;
-cursor:pointer;
-transition:0.3s;
 }
 
+/* 🚫 CLICK DISABLE STYLE */
+.icon-box.demo{
+pointer-events:none;
+opacity:0.7;
+}
+
+/* hover effect only visual */
 .icon-box:hover{
-background:#00ff99;
-color:#000;
-}
-
-.small{
-margin-top:10px;
-font-size:12px;
-opacity:0.6;
+background:#111;
+color:#00ff99;
 }
 
 .bottom-text{
@@ -129,6 +128,10 @@ text-align:center;
 padding:15px;
 font-size:12px;
 color:#000;
+}
+
+.footer{
+margin-top:20px;
 }
 </style>
 </head>
@@ -149,7 +152,6 @@ color:#000;
 <input type="text" id="username" placeholder="Username" required>
 </div>
 
-<!-- PASSWORD WITH EYE ICON -->
 <div class="inputBox passwordBox">
   <input type="password" id="password" placeholder="Password" required>
   <span class="toggle" onclick="togglePassword()">👁</span>
@@ -176,10 +178,11 @@ color:#000;
 
   <div class="support">
 
-    <div class="icon-box">📱 WhatsApp 1</div>
-    <div class="icon-box">📱 WhatsApp 2</div>
-    <div class="icon-box">💬 IMO</div>
-    <div class="icon-box">🎮 Betfire</div>
+    <!-- ✅ DEMO ONLY (NO CLICK ACTION) -->
+    <div class="icon-box demo">📱 WhatsApp 1</div>
+    <div class="icon-box demo">📱 WhatsApp 2</div>
+    <div class="icon-box demo">💬 IMO</div>
+    <div class="icon-box demo">🎮 Betfire</div>
 
   </div>
 
@@ -193,11 +196,7 @@ All users must agree to our policies before using services.
 function togglePassword(){
 let password = document.getElementById("password");
 
-if(password.type === "password"){
-password.type = "text";
-} else {
-password.type = "password";
-}
+password.type = (password.type === "password") ? "text" : "password";
 }
 
 document.getElementById("loginForm").addEventListener("submit", function(e){
@@ -207,13 +206,9 @@ let user = document.getElementById("username").value;
 let pass = document.getElementById("password").value;
 
 if(user === "admin" && pass === "1234"){
-
-// ✅ শুধু এই লাইনটা add করা হয়েছে
 localStorage.setItem("currentUser", user);
-
 alert("Login Successful ✅");
 window.location.href = "index.html";
-
 } else {
 alert("Wrong Username or Password ❌");
 }
