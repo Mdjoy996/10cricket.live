@@ -264,7 +264,47 @@ color:#fff;
 
 .support{
 color:#00ff99;
-}   
+}  
+
+ /* ACCOUNT MENU */
+#accountBox{
+position:fixed;
+bottom:75px;
+right:10px;
+width:220px;
+background:#111;
+border-radius:14px;
+border:1px solid #00ff99;
+overflow:hidden;
+padding:0;
+display:none;
+z-index:1000;
+box-shadow:0 0 15px rgba(0,255,153,0.3);
+}
+
+.accItem{
+padding:14px;
+font-size:15px;
+border-bottom:1px solid rgba(255,255,255,0.08);
+cursor:pointer;
+transition:0.3s;
+background:#111;
+}
+
+.accItem:hover{
+background:#00aa00;
+}
+
+.logoutBtn{
+background:#1a0000;
+color:#ff4d4d;
+font-weight:bold;
+}
+
+.logoutBtn:hover{
+background:red;
+color:#fff;
+}
 </style>
 </head>
 
@@ -425,46 +465,6 @@ i=(i+1)%imgs.length;
 document.getElementById("sliderImg").src = imgs[i]+"?t="+Date.now();
 
 },2500);
-
-/* ACCOUNT MENU */
-#accountBox{
-position:fixed;
-bottom:75px;
-right:10px;
-width:220px;
-background:#111;
-border-radius:14px;
-border:1px solid #00ff99;
-overflow:hidden;
-padding:0;
-display:none;
-z-index:1000;
-box-shadow:0 0 15px rgba(0,255,153,0.3);
-}
-
-.accItem{
-padding:14px;
-font-size:15px;
-border-bottom:1px solid rgba(255,255,255,0.08);
-cursor:pointer;
-transition:0.3s;
-background:#111;
-}
-
-.accItem:hover{
-background:#00aa00;
-}
-
-.logoutBtn{
-background:#1a0000;
-color:#ff4d4d;
-font-weight:bold;
-}
-
-.logoutBtn:hover{
-background:red;
-color:#fff;
-}
   
 window.onload=updateUI;
 
