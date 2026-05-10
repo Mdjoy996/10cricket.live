@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>10Cricket</title>
+
+<style>
+
+body{
+background:#000;
+font-family:Arial;
+color:#fff;
+margin:0;
+padding-bottom:150px;
+}
+
+/* ================= BANNER + CARD ================= */
+.banner, .card{
+position:relative;
+overflow:hidden;
+cursor:pointer;
+transition:0.3s;
+}
+
+.banner:hover img,
+.card:hover img{
+transform:scale(1.05);
+}
+
+/* ▶ PLAY LABEL */
+.banner::after,
+.card::after{
+content:"▶ Play";
+position:absolute;
+bottom:8px;
+right:8px;
+color:#00ff99;
+font-size:12px;
+font-weight:bold;
+background:rgba(0,0,0,0.75);
+padding:5px 10px;
+border-radius:8px;
+border:1px solid #00ff99;
+z-index:20;
+pointer-events:none;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:8px 10px;
+background:linear-gradient(90deg,#001a00,#00aa00,#001a00);
+}
+
+.logo img{height:55px;}
+
+.btns a{
+padding:8px 12px;
+margin-left:6px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+font-size:14px;
+}
+.signup{background:#111;color:#fff}
+.login{background:#9cff00;color:#000}
+
+/* BET BAR (UNCHANGED) */
+#betBar{
+display:none;
+padding:4px 10px;
+background:linear-gradient(90deg,#002b00,#006400,#002b00);
+}
+
+.betRow{
+display:flex;
+align-items:center;
+gap:8px;
+background:rgba(0,0,0,0.4);
+padding:4px 6px;
+border-radius:14px;
+}
+
+.betBox{
+background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
+padding:6px 12px;
+border-radius:10px;
+font-size:14px;
+border:1px solid rgba(0,255,0,0.3);
+}
+
+.betMain{
+flex:1;
+background:linear-gradient(135deg,#111,#222);
+padding:4px 10px;
+border-radius:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+#balanceVal{color:#00ff99;font-weight:bold;}
+#exposureVal{color:#ff4d4d;font-weight:bold;}
+
+/* SLIDER */
+.slider-box{
+overflow:hidden;
+}
+
+.slider-img{
+width:100%;
+height:65px;
+object-fit:cover;
+display:block;
+transition:0.5s;
+}
+
+/* BANNER */
+.banner{
+border-top:2px solid rgba(0,255,153,0.7);
+border-bottom:2px solid rgba(0,255,153,0.7);
+border-left:none;
+border-right:none;
+border-radius:0;
+overflow:hidden;
+}
+
+.banner img{
+width:100%;
+height:120px;
+object-fit:cover;
+}
+
+/* SMALL GRID */
+.small{
+display:grid;
+grid-template-columns:1fr 1fr;
+position:relative;
+}
+
+.small::before{
+content:"";
+position:absolute;
+top:0;
+left:50%;
+width:2px;
+height:100%;
+background:rgba(0,255,153,0.8);
+z-index:10;
+pointer-events:none;
+}
+
+.card{
+height:150px;
+border-top:2px solid rgba(0,255,153,0.6);
+border-bottom:2px solid rgba(0,255,153,0.6);
+}
+
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* GAME */
+#gameBox{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:#000;
+display:none;
+z-index:999;
+}
+
+#gameFrame{width:100%;height:100%;border:none}
+
+.closeBtn{
+position:absolute;
+top:10px;right:10px;
+background:red;
+color:#fff;
+padding:8px 12px;
+border:none;
+z-index:1000;
+}
+
+/* FOOTER */
+footer{
+background:#0b0b0b;
+color:#fff;
+padding:20px;
+text-align:center;
+font-size:12px;
+}
+
+/* BOTTOM */
+.bottom{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+padding:16px;
+background:#001a00;
+border-top:2px solid #66ff00;
+z-index:50;
+}
+
+.bottom a{
+color:#fff;
+font-size:22px;
+text-decoration:none;
+}
+
+.home{color:#9cff00}
+
+/* 🔥 ACCOUNT POPUP */
+#accountBox{
+position:fixed;
+bottom:70px;
+right:10px;
+background:#111;
+padding:15px;
+border-radius:10px;
+border:1px solid #00ff99;
+display:none;
+z-index:1000;
+}
+
+#accountBox button{
+width:100%;
+padding:10px;
+background:red;
+color:#fff;
+border:none;
+border-radius:6px;
+}
+
+ .footer{
+background:#0b0b0b;
+color:#aaa;
+text-align:center;
+padding:15px;
+font-size:12px;
+border-top:1px solid #00ff99;
+}
+
+.footer .copy{
+color:#fff;
+margin-bottom:8px;
+}
+
+.links, .support{
+margin-top:6px;
+line-height:1.6;
+}
+
+.links{
+color:#fff;
+}
+
+.support{
+color:#00ff99;
+}   
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo" id="logo">
+<img src="logo.png">
+</div>
+
+<div class="btns" id="authBtns">
+<a href="#" class="signup">Sign Up</a>
+<a href="login.html" class="login">Login</a>
+</div>
+</header>
+
+<!-- ✅ BET BAR SAME -->
+<div id="betBar">
+<div class="betRow">
+<div class="betBox">💰 Bets</div>
+
+<div class="betMain">
+<span>Main <span id="balanceVal">0.00</span></span>
+<span>Exposure <span id="exposureVal">0.00</span></span>
+</div>
+
+<div class="betBox">🔄</div>
+<div class="betBox">⚙</div>
+</div>
+</div>
+
+<div class="wrap">
+
+<div class="slider-box">
+    <img id="sliderImg" class="slider-img" src="slider.png">
+</div>
+
+<!-- BANNERS -->
+<div class="banner" onclick="openGame('https://example.com')"><img src="banner1.png"></div>
+<div class="banner" onclick="openGame('https://example.com')"><img src="banner2.png"></div>
+<div class="banner" onclick="openGame('https://example.com')"><img src="banner3.png"></div>
+<div class="banner" onclick="openGame('https://example.com')"><img src="banner4.png"></div>
+
+<!-- SMALL -->
+<div class="small">
+<script>
+for(let i=1;i<=30;i++){
+document.write('<div class="card" onclick="openGame(\'https://example.com\')"><img src="small'+i+'.png"></div>');
+}
+</script>
+</div>
+
+<div class="banner" onclick="openGame('https://example.com')">
+<img src="bigbottom.png" style="height:80px;">
+</div>
+
+</div>
+
+ <footer class="footer">
+  <div class="copy">10cricket.live | © 2026</div>
+
+  <div class="links">
+    KYC | About Us | Privacy Policy | Responsible Gaming | Terms & Conditions
+  </div>
+
+  <div class="support">
+    Customer Support: WhatsApp 1 | WhatsApp 2 | IMO
+  </div>
+</footer>
+
+<div id="gameBox">
+<button class="closeBtn" onclick="closeGame()">X</button>
+<iframe id="gameFrame"></iframe>
+</div>
+
+<!-- ✅ ACCOUNT POPUP -->
+<div id="accountBox">
+<button onclick="logout()">Logout</button>
+</div>
+
+<div class="bottom">
+<a href="#">Sports</a>
+<a href="#" class="home">Home</a>
+<a href="#" onclick="toggleAccount()">Account</a>
+</div>
+
+<script>
+
+/* GAME */
+function openGame(l){
+gameBox.style.display="block";
+gameFrame.src=l;
+}
+
+function closeGame(){
+gameBox.style.display="none";
+gameFrame.src="";
+}
+
+/* LOGIN UI */
+function updateUI(){
+let user = localStorage.getItem("currentUser");
+
+logo.style.display = user ? "none" : "block";
+authBtns.style.display = user ? "none" : "block";
+betBar.style.display = user ? "block" : "none";
+}
+
+/* ACCOUNT TOGGLE */
+function toggleAccount(){
+let user = localStorage.getItem("currentUser");
+
+if(!user){
+alert("Login first!");
+return;
+}
+
+let box = document.getElementById("accountBox");
+box.style.display = (box.style.display=="block") ? "none" : "block";
+}
+
+/* LOGOUT */
+function logout(){
+localStorage.removeItem("currentUser");
+location.reload();
+}
+  
+/* SLIDER FIX (CACHE BUST) */
+
+let imgs=["slider.png","slider1.png","slider2.png","slider3.png"];
+
+let i=0;
+
+
+
+setInterval(()=>{
+
+i=(i+1)%imgs.length;
+
+document.getElementById("sliderImg").src = imgs[i]+"?t="+Date.now();
+
+},2500);
+  
+window.onload=updateUI;
+
+</script>
+
+</body>
+</html>
