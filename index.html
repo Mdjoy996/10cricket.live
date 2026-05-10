@@ -342,7 +342,27 @@ document.write('<div class="card" onclick="openGame(\'https://example.com\')"><i
 
 <!-- ✅ ACCOUNT POPUP -->
 <div id="accountBox">
-<button onclick="logout()">Logout</button>
+
+<div class="accItem" onclick="alert('Profile Page')">
+👤 Profile
+</div>
+
+<div class="accItem" onclick="alert('Transaction History')">
+💳 Transaction History
+</div>
+
+<div class="accItem" onclick="alert('Bet History')">
+🎮 Bet History
+</div>
+
+<div class="accItem" onclick="alert('Settings')">
+⚙ Settings
+</div>
+
+<div class="accItem logoutBtn" onclick="logout()">
+🚪 Logout
+</div>
+
 </div>
 
 <div class="bottom">
@@ -410,6 +430,44 @@ document.getElementById("sliderImg").src = imgs[i]+"?t="+Date.now();
   
 window.onload=updateUI;
 
+ /* ACCOUNT MENU */
+#accountBox{
+position:fixed;
+bottom:75px;
+right:10px;
+width:220px;
+background:#111;
+border-radius:14px;
+border:1px solid #00ff99;
+overflow:hidden;
+padding:0;
+box-shadow:0 0 15px rgba(0,255,153,0.3);
+}
+
+.accItem{
+padding:14px;
+font-size:15px;
+border-bottom:1px solid rgba(255,255,255,0.08);
+cursor:pointer;
+transition:0.3s;
+background:#111;
+}
+
+.accItem:hover{
+background:#00aa00;
+}
+
+.logoutBtn{
+background:#1a0000;
+color:#ff4d4d;
+font-weight:bold;
+}
+
+.logoutBtn:hover{
+background:red;
+color:#fff;
+}
+ 
 </script>
 
 </body>
