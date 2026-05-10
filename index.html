@@ -418,8 +418,6 @@ let imgs=["slider.png","slider1.png","slider2.png","slider3.png"];
 
 let i=0;
 
-
-
 setInterval(()=>{
 
 i=(i+1)%imgs.length;
@@ -427,8 +425,6 @@ i=(i+1)%imgs.length;
 document.getElementById("sliderImg").src = imgs[i]+"?t="+Date.now();
 
 },2500);
-  
-window.onload=updateUI;
 
  /* ACCOUNT MENU */
 #accountBox{
@@ -467,7 +463,9 @@ font-weight:bold;
 background:red;
 color:#fff;
 }
- 
+  
+window.onload=updateUI;
+
 </script>
 
 </body>
